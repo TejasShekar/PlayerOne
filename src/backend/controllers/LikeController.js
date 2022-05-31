@@ -1,5 +1,5 @@
-import { Response } from "miragejs";
-import { requiresAuth } from "../utils/authUtils";
+import {Response} from "miragejs";
+import {requiresAuth} from "../utils/authUtils";
 
 /**
  * All the routes related to Liked Videos are present here.
@@ -23,7 +23,7 @@ export const getLikedVideosHandler = function (schema, request) {
         }
       );
     }
-    return new Response(200, {}, { likes: user.likes });
+    return new Response(200, {}, {likes: user.likes});
   } catch (error) {
     return new Response(
       500,
@@ -44,7 +44,7 @@ export const getLikedVideosHandler = function (schema, request) {
 export const addItemToLikedVideos = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
-    const { video } = JSON.parse(request.requestBody);
+    const {video} = JSON.parse(request.requestBody);
     if (user.likes.some((item) => item.id === video.id)) {
       return new Response(
         409,
@@ -55,7 +55,7 @@ export const addItemToLikedVideos = function (schema, request) {
       );
     }
     user.likes.push(video);
-    return new Response(201, {}, { likes: user.likes });
+    return new Response(201, {}, {likes: user.likes});
   }
   return new Response(
     404,
@@ -76,12 +76,12 @@ export const removeItemFromLikedVideos = function (schema, request) {
   if (user) {
     const videoId = request.params.videoId;
     const filteredLikes = user.likes.filter((item) => item._id !== videoId);
-    this.db.users.update({ likes: filteredLikes });
-    return new Response(200, {}, { likes: filteredLikes });
+    this.db.users.update({likes: filteredLikes});
+    return new Response(200, {}, {likes: filteredLikes});
   }
   return new Response(
     404,
     {},
-    { errors: ["The user you request does not exist. Not Found error."] }
+    {errors: ["The user you request does not exist. Not Found error."]}
   );
 };

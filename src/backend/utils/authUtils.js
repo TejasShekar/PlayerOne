@@ -1,4 +1,4 @@
-import { Response } from "miragejs";
+import {Response} from "miragejs";
 import dayjs from "dayjs";
 import jwt_decode from "jwt-decode";
 
@@ -9,13 +9,13 @@ export const requiresAuth = function (request) {
     process.env.REACT_APP_JWT_SECRET
   );
   if (decodedToken) {
-    const user = this.db.users.findBy({ email: decodedToken.email });
+    const user = this.db.users.findBy({email: decodedToken.email});
     return user;
   }
   return new Response(
     401,
     {},
-    { errors: ["The token is invalid. Unauthorized access error."] }
+    {errors: ["The token is invalid. Unauthorized access error."]}
   );
 };
 
