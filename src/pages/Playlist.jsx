@@ -1,7 +1,7 @@
 export const Playlist = () => {
   return (
     <main>
-      <h1>This is contains the user defined Playlists</h1>
+      <h1>This page contains the user defined Playlists</h1>
     </main>
   );
 };
