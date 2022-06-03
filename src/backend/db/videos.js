@@ -1,7 +1,8 @@
-/**
- * Videos Database can be added here.
- * You can add videos of your wish with different attributes
- * */
+// 'https://www.youtube.com/oembed?url=' -> paste this as a prefix to any Youtube video to get the basic data of the video and also for the iframe
+
+// https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj -> use the creator ID to get the channel profile picture
+
+// 4 categories - 20 videos total => 5 per each category
 
 export const videos = [
   {
