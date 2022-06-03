@@ -1,27 +1,27 @@
 import {v4 as uuid} from "uuid";
-
-/**
- * Category Database can be added here.
- * You can add category of your wish with different attributes
- * */
-
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
-    description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+    category: "action",
+    src: "https://raw.githubusercontent.com/TejasShekar/P8-Games/dev/src/assets/action.webp",
+    name: "Action Games",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
-    description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+    category: "adventure",
+    src: "https://raw.githubusercontent.com/TejasShekar/P8-Games/dev/src/assets/adventure.webp",
+    name: "Adventure Games",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
-    description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+    category: "racing",
+    src: "https://raw.githubusercontent.com/TejasShekar/P8-Games/dev/src/assets/racing.webp",
+    name: "Racing Games",
+  },
+  {
+    _id: uuid(),
+    category: "sports",
+    src: "https://github.com/TejasShekar/P8-Games/blob/dev/src/assets/sports.webp",
+    name: "Sports Games",
   },
 ];
