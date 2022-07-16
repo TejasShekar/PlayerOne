@@ -10,7 +10,7 @@ export const SideBar = () => {
   return (
     // Add a btn that will toggle the side bar open and close
     // Add icons to each route. These icons will be visible irrespective of sidebar open or close
-    <aside className="flex flex-col text-xl font-normal sticky h-screen top-20 overflow-y-auto">
+    <aside className="flex flex-col text-xl font-normal sticky h-[calc(100vh-6rem)] top-24 overflow-y-auto">
       <div>
         <div className="flex items-center mb-4">
           <figure className="w-14 mx-2">

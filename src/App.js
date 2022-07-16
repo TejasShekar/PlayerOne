@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr]">
+      <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr] mt-4">
         <SideBar />
         <div className=" mx-auto w-full">
           <Routes>
