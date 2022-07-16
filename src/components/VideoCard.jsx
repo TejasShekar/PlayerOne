@@ -19,8 +19,8 @@ export const VideoCard = ({videoProps}) => {
           />
           <div className="flex flex-col gap-1">
             <p>{title}</p>
-            <p className="text-[0.8rem] text-gray-600">{creator}</p>
-            <div className="flex text-[0.9rem] text-gray-300">
+            <p className="text-[0.8rem] text-gray-600 dark:text-gray-400">{creator}</p>
+            <div className="flex text-[0.9rem] text-gray-600 dark:text-gray-400">
               <p>{getFormattedViewCount(views)} views</p>
               <span className="mx-2">•</span>
               <p>{uploadDate}</p>
@@ -28,7 +28,7 @@ export const VideoCard = ({videoProps}) => {
           </div>
         </div>
         <button>
-          <i className="fa-solid fa-ellipsis-vertical text-xl"></i>
+          <span className="material-icons-outlined">more_vert</span>
         </button>
       </div>
     </div>
