@@ -19,7 +19,7 @@ export const videos = [
   {
     _id: "1aM_zh-Kbl4",
     category: "action",
-    title: "Cars Vs Cars Challenge 99.333% People Start Crying in GTA 5!",
+    title: "99.333% People Start Crying in GTA 5 after playing this!",
     creator: "THE CASETOO",
     creatorID: "AKedOLSz-775q6Y5D46odFwqXfKwZ73mnj2ASdcTOlOU",
     views: "180,355",
@@ -83,7 +83,7 @@ export const videos = [
   {
     _id: "uJT4y4YGIGs",
     category: "racing",
-    title: "NFS Heat Mustang GT RTR - LOGITECH G29 gameplay",
+    title: "NFS Heat Mustang GT RTR - LOGITECH G29",
     creator: "Fastay",
     creatorID: "YUT4suS0BZSemkBRckjv3XGwWfYNzP3SmeKXsB_wCiE5ufuqfDGEaybEhPUFk0p7t15BBHRx",
     views: "1,643,960",
@@ -94,7 +94,7 @@ export const videos = [
   {
     _id: "AXXtoCFwIXY",
     category: "racing",
-    title: "Need for Speed Heat - BMW M3 GTR Legendary Edition 2005",
+    title: "Need for Speed Heat - BMW M3 GTR Legendary Edition",
     creator: "Throneful",
     creatorID: "AKedOLRFpJvq-wBohC02mHXTpx_uhRit3eV204GWWoiHbg",
     views: "200,047",
@@ -138,7 +138,7 @@ export const videos = [
   {
     _id: "0ppfJ9Mv71Y",
     category: "adventure",
-    title: "13 Minutes of Caribbean Open-World Gameplay | Assassin's Creed 4 Black Flag",
+    title: "Assassin's Creed 4 Black Flag GamePlay",
     creator: "Assassin's Creed",
     creatorID: "AKedOLT52k4kP9eMbrjlikSuNOY0ZKo1tjjVGuwhx72ulg",
     views: "426,781",
