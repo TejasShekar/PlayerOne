@@ -1,5 +1,6 @@
 import {Route, Routes} from "react-router-dom";
 import {NavBar} from "./components/NavBar";
+import {SideBar} from "./components/SideBar";
 import {
   HomePage,
   Explore,
@@ -12,18 +13,21 @@ import {
 
 function App() {
   return (
-    <div className="App w-full h-screen flex">
+    <div>
       <NavBar />
-      <div className="mx-auto relative z-0 mt-20">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/watch-later" element={<WatchLater />} />
-          <Route path="/playlist" element={<Playlist />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/liked-videos" element={<LikedVideos />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
+      <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr]">
+        <SideBar />
+        <div className=" mx-auto w-full">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/watch-later" element={<WatchLater />} />
+            <Route path="/playlist" element={<Playlist />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/liked" element={<LikedVideos />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
