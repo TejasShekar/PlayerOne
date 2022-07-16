@@ -37,8 +37,9 @@ export const SideBar = () => {
           <li>
             <NavLink
               to="/playlist"
-              style={({isActive}) => (isActive ? activeStyle : undefined)}
-              className=" inline-block py-4 px-2 w-full "
+              className={(isActive) =>
+                `${isActive ? activeStyle : ""} inline-block py-4 px-2 w-full`
+              }
             >
               Playlist
             </NavLink>
