@@ -11,7 +11,7 @@ export const Explore = () => {
   }, [dispatch]);
 
   return (
-    <main className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] mx-4 gap-4">
+    <main className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] mx-4 gap-4">
       {videosData.map((video) => (
         <VideoCard key={video._id} videoProps={video} />
       ))}
