@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom";
 import fallback_DP from "../assets/fallback_DP.jpg";
 
 export const SideBar = () => {
-  const activeStyle = "text-black font-bold bg-[#eea53f]";
+  const activeStyle = "text-black bg-[#eea53f]";
 
   return (
     // Add a btn that will toggle the side bar open and close
