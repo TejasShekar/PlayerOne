@@ -26,6 +26,8 @@ export const NavBar = ({theme}) => {
           <figure className="w-14 mx-2">
             <img
               className="rounded-[50%] border-[1px] border-black"
+              // http://xsgames.co/randomusers/assets/avatars/pixel/${random_number}.jpg -> use this link to get an random number between 0 and 53 and assign that img as profile picture to a new user.
+              // src="https://xsgames.co/randomusers/avatar.php?g=pixel"
               src={fallback_DP}
               alt="profile_img"
             />

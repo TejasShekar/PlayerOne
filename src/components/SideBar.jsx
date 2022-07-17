@@ -8,8 +8,6 @@ export const SideBar = () => {
     // Add icons to each route. These icons will be visible irrespective of sidebar open or close
     <aside className="flex flex-col text-lg font-normal sticky h-[calc(100vh-6rem)] top-24 overflow-y-auto">
       <div>
-              // http://xsgames.co/randomusers/assets/avatars/pixel/${random_number}.jpg -> use this link to get an random number between 0 and 53 and assign that img as profile picture to a new user.
-              // src="https://xsgames.co/randomusers/avatar.php?g=pixel"
         <ol>
           <li>
             <NavLink
