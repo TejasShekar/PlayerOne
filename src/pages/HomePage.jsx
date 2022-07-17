@@ -7,6 +7,7 @@ export const HomePage = () => {
         <h1 className=" font-['Press_Start_2P'] text-2xl text-center leading-10">
           THE ULTIMATE COLLECTION OF HANDFULLY SELECTED CONTENT ON GAMEPLAYS AND
           MORE
+          COLLECTION OF HANDFULLY SELECTED CONTENT ON GAMEPLAYS AND MORE
         </h1>
         <Link
           to="/explore"
