@@ -19,7 +19,7 @@ export const videos = [
   {
     _id: "1aM_zh-Kbl4",
     category: "action",
-    title: "Cars Vs Cars Challenge 99.333% People Start Crying in GTA 5!",
+    title: "99.333% People Start Crying in GTA 5 after playing this!",
     creator: "THE CASETOO",
     creatorID: "AKedOLSz-775q6Y5D46odFwqXfKwZ73mnj2ASdcTOlOU",
     views: "180,355",
@@ -83,10 +83,9 @@ export const videos = [
   {
     _id: "uJT4y4YGIGs",
     category: "racing",
-    title: "NFS Heat Mustang GT RTR - LOGITECH G29 gameplay",
+    title: "NFS Heat Mustang GT RTR - LOGITECH G29",
     creator: "Fastay",
-    creatorID:
-      "YUT4suS0BZSemkBRckjv3XGwWfYNzP3SmeKXsB_wCiE5ufuqfDGEaybEhPUFk0p7t15BBHRx",
+    creatorID: "YUT4suS0BZSemkBRckjv3XGwWfYNzP3SmeKXsB_wCiE5ufuqfDGEaybEhPUFk0p7t15BBHRx",
     views: "1,643,960",
     description:
       "Gameplay in Need for speed Heat with Rebuilding a FORD MUSTANG GT RTR using Logitech G29 steering wheel",
@@ -95,24 +94,13 @@ export const videos = [
   {
     _id: "AXXtoCFwIXY",
     category: "racing",
-    title: "Need for Speed Heat - BMW M3 GTR Legendary Edition 2005",
+    title: "Need for Speed Heat - BMW M3 GTR Legendary Edition",
     creator: "Throneful",
     creatorID: "AKedOLRFpJvq-wBohC02mHXTpx_uhRit3eV204GWWoiHbg",
     views: "200,047",
     description:
       "Need for Speed Heat - BMW M3 GTR Legendary Edition 2005 - Open World Free Roam Gameplay",
     uploadDate: "Dec 5, 2019",
-  },
-  {
-    _id: "vdz58E1MWBM",
-    category: "racing",
-    title: "Need For Speed Most Wanted 2012 - Get Wanted ",
-    creator: "Electronic Arts",
-    creatorID: "AKedOLTd5yUoktPB4xtedQ-U5UFDrdNk7wesxDRbRK3NEQ",
-    views: "2,481,281",
-    description:
-      "With unprecedented freedom and power at your fingertips, experience the epic, high energy, vast open-world of Fairhaven where the possibilities of adventure are endless. Race against your rivals  at breakneck speeds across the varied city of Fairhaven.",
-    uploadDate: "Sep 25, 2012",
   },
   {
     _id: "TgC0p_9Num8",
@@ -141,8 +129,7 @@ export const videos = [
     category: "adventure",
     title: "Assassin's Creed: Brotherhood Gameplay",
     creator: "Ozone",
-    creatorID:
-      "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
+    creatorID: "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
     views: "107,762",
     description:
       "Assassin's Creed - The Ezio Collection. One of the greatest and most respected character and Assasin of all the Assasins in the series. His compassion to grow the creed while helping people to overcome their fear and get independent shows his integrity. He's also know for his wise words. His famous quote is 'We work in the Dark to serve the Light' ",
@@ -151,8 +138,7 @@ export const videos = [
   {
     _id: "0ppfJ9Mv71Y",
     category: "adventure",
-    title:
-      "13 Minutes of Caribbean Open-World Gameplay | Assassin's Creed 4 Black Flag",
+    title: "Assassin's Creed 4 Black Flag GamePlay",
     creator: "Assassin's Creed",
     creatorID: "AKedOLT52k4kP9eMbrjlikSuNOY0ZKo1tjjVGuwhx72ulg",
     views: "426,781",
@@ -176,8 +162,7 @@ export const videos = [
     category: "adventure",
     title: "Assassin's Creed: Revelations Gameplay",
     creator: "Ozone",
-    creatorID:
-      "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
+    creatorID: "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
     views: "227,702",
     description:
       "Assassin's Creed - The Ezio Collection. One of the greatest and most respected character and Assasin of all the Assasins in the series. His compassion to grow the creed while helping people to overcome their fear and get independent shows his integrity. He's also know for his wise words. His famous quote is 'We work in the Dark to serve the Light' ",
@@ -198,8 +183,7 @@ export const videos = [
     category: "sports",
     title: "F1 2020 Gameplay Monaco Lewis Hamilton",
     creator: "Tiametmarduk",
-    creatorID:
-      "kMWgmFXm5Ijs-sKqEGcdJoLSrfNztnTEJRAuarClWKSgfkZHtxvhAB3p7BvaSaf3vg0HVJP-",
+    creatorID: "kMWgmFXm5Ijs-sKqEGcdJoLSrfNztnTEJRAuarClWKSgfkZHtxvhAB3p7BvaSaf3vg0HVJP-",
     views: "2,403,888",
     description:
       "F1 2020 Monaco 78 Lap Race: No Assists, Simulation Damage and 110% AI and starting from Last Place. What more could you want?",
@@ -215,16 +199,5 @@ export const videos = [
     description:
       "Exclusive Direct-Feed F1 22 PC Gameplay, talking the new Handling & Tyre Model, New Manual Grid Spot Formation Lap, Manual Pitstops, & our very first laps ever of the Miami GP! Thanks to EA Creator Network",
     uploadDate: "May 5, 2022",
-  },
-  {
-    _id: "SBCEIjVG4bY",
-    category: "sports",
-    title: "F1 2021 - Race in Brazil in Verstappen's Red Bull",
-    creator: "Beatdown Racing x Veloce",
-    creatorID: "AKedOLTzJRzIlRESKblj2Dvv5sKlg8Ey4hJktpkMyNuT",
-    views: "453,397",
-    description:
-      "Check out this brand new video of F1 2021 gameplay, containing a full 100% race of the Brazilian Grand Prix! This Formula 1 race has been recorded by Beatdown Racing on the next-gen PS5 console with the AI driver level set to 95, a.k.a. Legend difficulty. Today we'll be racing at the Autódromo José Carlos Pace - also known as Interlagos - in São Paulo, Brazil using Max Verstappen's Red Bull RB16B!",
-    uploadDate: "Nov 11, 2021",
   },
 ];
