@@ -25,9 +25,9 @@ export const VideoCard = ({videoProps}) => {
   }, [openOptions]);
 
   return (
-    <div className="relative h-" ref={videoCardRef}>
+    <div ref={videoCardRef}>
       <img src={`https://i.ytimg.com/vi/${_id}/hq720.jpg`} alt={title} />
-      <div className="flex justify-between items-start m-2">
+      <div className="flex justify-between items-start m-2 relative">
         <div className="flex">
           <img
             src={error ? fallbackSrc : mainImgSrc}
