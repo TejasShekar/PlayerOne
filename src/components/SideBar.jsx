@@ -1,5 +1,4 @@
 import {NavLink} from "react-router-dom";
-import fallback_DP from "../assets/fallback_DP.jpg";
 
 export const SideBar = () => {
   const activeStyle = "text-black bg-[#eea53f]";
@@ -9,18 +8,6 @@ export const SideBar = () => {
     // Add icons to each route. These icons will be visible irrespective of sidebar open or close
     <aside className="flex flex-col text-lg font-normal sticky h-[calc(100vh-6rem)] top-24 overflow-y-auto">
       <div>
-        <div className="flex items-center mb-4">
-          <figure className="w-14 mx-2">
-            <img
-              className="rounded-[50%] border-[1px] border-black"
-              // http://xsgames.co/randomusers/assets/avatars/pixel/${random_number}.jpg -> use this link to get an random number between 0 and 53 and assign that img as profile picture to a new user.
-              // src="https://xsgames.co/randomusers/avatar.php?g=pixel"
-              src={fallback_DP}
-              alt="profile_img"
-            />
-          </figure>
-          <p>Hello, User</p>
-        </div>
         <ol>
           <li>
             <NavLink

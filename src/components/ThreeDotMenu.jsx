@@ -2,7 +2,7 @@ import React from "react";
 
 export const ThreeDotMenu = ({openOptions}) => {
   return (
-    <div className="flex flex-col gap-4 text-md my-auto bg-white dark:bg-black absolute right-0 top-8 shadow-sm shadow-black rounded p-4">
+    <div className="flex flex-col gap-4 text-md my-auto bg-[#f9f9f9] dark:bg-black absolute right-6 shadow-sm shadow-black rounded p-2">
       <button className="flex center">
         <span className="material-icons-outlined mr-2">playlist_add</span>Add to Playlist
       </button>
