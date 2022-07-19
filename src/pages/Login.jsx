@@ -1,16 +1,35 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import {userLogin} from "../redux/features/authSlice";
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loginData, setLoginData] = useState({email: "", password: ""});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const authState = useSelector((state) => state.auth);
+
+  const guestUser = {
+    email: "guest@playerOne.com",
+    password: "guest@123",
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (loginData.email && loginData.password) dispatch(userLogin(loginData));
+  };
+
+  if (authState.userData) {
+    navigate("/", {replace: true});
+  }
+  console.log(authState);
 
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
       <div className=" ">
         <h2 className="font-['Press_Start_2P'] text-2xl text-center m-2">LOGIN</h2>
-        <form className=" w-96 flex flex-col">
+        <form className=" w-96 flex flex-col" onSubmit={handleLogin}>
           <div className="flex flex-col gap-2 m-2">
             <label htmlFor="e-mail" className="text-md ">
               Email
@@ -20,7 +39,9 @@ export const Login = () => {
               id="e-mail"
               className="dark:text-white border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
               required
+              value={loginData.email}
               placeholder="user.name@email.com"
+              onChange={(e) => setLoginData((prev) => ({...prev, email: e.target.value}))}
             />
           </div>
           <div className="flex flex-col gap-2 m-2 ">
@@ -33,6 +54,10 @@ export const Login = () => {
                 id="password"
                 className="dark:text-white w-full border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
                 required
+                value={loginData.password}
+                onChange={(e) =>
+                  setLoginData((prev) => ({...prev, password: e.target.value}))
+                }
               />
               <button
                 onClick={(e) => {
@@ -57,6 +82,7 @@ export const Login = () => {
             <button
               type="submit"
               className="border-[#eeaf23] border-2 m-2 p-2 rounded-lg font-bold "
+              onClick={() => setLoginData(guestUser)}
             >
               Login as Guest
             </button>
