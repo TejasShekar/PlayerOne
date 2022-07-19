@@ -16,19 +16,8 @@ export const SideBar = () => {
                 `${isActive ? activeStyle : ""} py-4 px-4 flex center`
               }
             >
-              <span className="material-icons-outlined mr-2">explore</span>
+              <span className="material-icons-outlined mr-4">explore</span>
               Explore
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/playlist"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
-            >
-              <span className="material-icons-outlined mr-2">playlist_play</span>
-              Playlist
             </NavLink>
           </li>
           <li>
@@ -38,7 +27,7 @@ export const SideBar = () => {
                 `${isActive ? activeStyle : ""} py-4 px-4 flex center`
               }
             >
-              <span className="material-icons-outlined mr-2">watch_later</span>
+              <span className="material-icons-outlined mr-4">watch_later</span>
               Watch Later
             </NavLink>
           </li>
@@ -49,8 +38,19 @@ export const SideBar = () => {
                 `${isActive ? activeStyle : ""} py-4 px-4 flex center`
               }
             >
-              <span className="material-icons-outlined mr-2">thumb_up</span>
+              <span className="material-icons-outlined mr-4">thumb_up</span>
               Liked Videos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/playlist"
+              className={({isActive}) =>
+                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
+              }
+            >
+              <span className="material-icons-outlined mr-4">playlist_play</span>
+              Playlist
             </NavLink>
           </li>
           <li>
@@ -60,7 +60,7 @@ export const SideBar = () => {
                 `${isActive ? activeStyle : ""} py-4 px-4 flex center`
               }
             >
-              <span className="material-icons-outlined mr-2">history</span>
+              <span className="material-icons-outlined mr-4">history</span>
               History
             </NavLink>
           </li>

@@ -1,13 +1,14 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
+export const fetchVideos = createAsyncThunk("videos/fetchVideo", async () => {
   const response = await axios.get("/api/videos");
   return response.data.videos;
 });
 
 const initialState = {
   videosData: [],
+  selectedCategory: "all",
   isLoading: false,
   error: null,
 };
@@ -32,3 +33,4 @@ const videoSlice = createSlice({
 });
 
 export default videoSlice.reducer;
+export const {filterByCategory} = videoSlice.actions;
