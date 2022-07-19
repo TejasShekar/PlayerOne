@@ -85,8 +85,7 @@ export const videos = [
     category: "racing",
     title: "NFS Heat Mustang GT RTR - LOGITECH G29",
     creator: "Fastay",
-    creatorID:
-      "YUT4suS0BZSemkBRckjv3XGwWfYNzP3SmeKXsB_wCiE5ufuqfDGEaybEhPUFk0p7t15BBHRx",
+    creatorID: "YUT4suS0BZSemkBRckjv3XGwWfYNzP3SmeKXsB_wCiE5ufuqfDGEaybEhPUFk0p7t15BBHRx",
     views: "1,643,960",
     description:
       "Gameplay in Need for speed Heat with Rebuilding a FORD MUSTANG GT RTR using Logitech G29 steering wheel",
@@ -130,8 +129,7 @@ export const videos = [
     category: "adventure",
     title: "Assassin's Creed: Brotherhood Gameplay",
     creator: "Ozone",
-    creatorID:
-      "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
+    creatorID: "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
     views: "107,762",
     description:
       "Assassin's Creed - The Ezio Collection. One of the greatest and most respected character and Assasin of all the Assasins in the series. His compassion to grow the creed while helping people to overcome their fear and get independent shows his integrity. He's also know for his wise words. His famous quote is 'We work in the Dark to serve the Light' ",
@@ -164,8 +162,7 @@ export const videos = [
     category: "adventure",
     title: "Assassin's Creed: Revelations Gameplay",
     creator: "Ozone",
-    creatorID:
-      "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
+    creatorID: "lqWXpvf5cT7wjz_hJAj_8Y8OHj7adCxq46LIGxe7b0WWHRzwMsMyDh-2HdQtDFlRy4d7CWp5",
     views: "227,702",
     description:
       "Assassin's Creed - The Ezio Collection. One of the greatest and most respected character and Assasin of all the Assasins in the series. His compassion to grow the creed while helping people to overcome their fear and get independent shows his integrity. He's also know for his wise words. His famous quote is 'We work in the Dark to serve the Light' ",
@@ -186,8 +183,7 @@ export const videos = [
     category: "sports",
     title: "F1 2020 Gameplay Monaco Lewis Hamilton",
     creator: "Tiametmarduk",
-    creatorID:
-      "kMWgmFXm5Ijs-sKqEGcdJoLSrfNztnTEJRAuarClWKSgfkZHtxvhAB3p7BvaSaf3vg0HVJP-",
+    creatorID: "kMWgmFXm5Ijs-sKqEGcdJoLSrfNztnTEJRAuarClWKSgfkZHtxvhAB3p7BvaSaf3vg0HVJP-",
     views: "2,403,888",
     description:
       "F1 2020 Monaco 78 Lap Race: No Assists, Simulation Damage and 110% AI and starting from Last Place. What more could you want?",

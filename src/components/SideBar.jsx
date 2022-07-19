@@ -22,17 +22,6 @@ export const SideBar = () => {
           </li>
           <li>
             <NavLink
-              to="/playlist"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
-            >
-              <span className="material-icons-outlined mr-2">playlist_play</span>
-              Playlist
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/watch-later"
               className={({isActive}) =>
                 `${isActive ? activeStyle : ""} py-4 px-4 flex center`
@@ -51,6 +40,17 @@ export const SideBar = () => {
             >
               <span className="material-icons-outlined mr-2">thumb_up</span>
               Liked Videos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/playlist"
+              className={({isActive}) =>
+                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
+              }
+            >
+              <span className="material-icons-outlined mr-2">playlist_play</span>
+              Playlist
             </NavLink>
           </li>
           <li>

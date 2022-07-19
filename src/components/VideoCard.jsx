@@ -26,7 +26,7 @@ export const VideoCard = ({videoProps}) => {
 
   return (
     <div ref={videoCardRef}>
-      <img src={`https://i.ytimg.com/vi/${_id}/hq720.jpg`} alt={title} />
+      <img src={`https://i.ytimg.com/vi/${_id}/hqdefault.jpg`} alt={title} />
       <div className="flex justify-between items-start my-2 relative">
         <div className="flex">
           <img
