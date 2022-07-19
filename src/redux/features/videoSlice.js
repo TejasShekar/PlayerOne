@@ -16,10 +16,15 @@ const initialState = {
 const videoSlice = createSlice({
   name: "videos",
   initialState,
-  reducers: {},
+  reducers: {
+    filterByCategory: (state, action) => {
+      state.selectedCategory = action.payload;
+    },
+  },
   extraReducers: {
     [fetchVideos.pending]: (state) => {
       state.isLoading = true;
+      state.error = "";
     },
     [fetchVideos.fulfilled]: (state, action) => {
       state.isLoading = false;
