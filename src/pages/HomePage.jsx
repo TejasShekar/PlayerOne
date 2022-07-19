@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {Categories} from "../components/Categories";
 
 export const HomePage = () => {
   return (
@@ -14,6 +15,9 @@ export const HomePage = () => {
         >
           Explore Videos
         </Link>
+      </div>
+      <div className="mx-auto">
+        <Categories />
       </div>
     </main>
   );
