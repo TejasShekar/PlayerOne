@@ -1,6 +1,6 @@
 import {useState} from "react";
-import {Link, Navigate, useLocation} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 import {userSignUp} from "../redux/features/authSlice";
 
 export const SignUp = () => {
@@ -15,18 +15,12 @@ export const SignUp = () => {
     confirmPassword: false,
   });
   const dispatch = useDispatch();
-  const location = useLocation();
-  const previousPath = location.state?.from?.pathname ?? -1;
-  const user = useSelector((state) => state.auth.userData);
 
   const handleSignUp = (e) => {
     e.preventDefault();
     if (signUpData.email && signUpData.password) dispatch(userSignUp(signUpData));
   };
 
-  if (user) {
-    return <Navigate to={previousPath} replace={true} />;
-  }
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
       <div className=" ">

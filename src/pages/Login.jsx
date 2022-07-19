@@ -1,15 +1,12 @@
 import {useState} from "react";
-import {Link, Navigate, useLocation} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 import {userLogin} from "../redux/features/authSlice";
 
 export const Login = () => {
   const [loginData, setLoginData] = useState({email: "", password: ""});
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const location = useLocation();
-  const previousPath = location.state?.from?.pathname ?? -1;
-  const user = useSelector((state) => state.auth.userData);
 
   const guestUser = {
     email: "guest@playerOne.com",
@@ -20,10 +17,6 @@ export const Login = () => {
     e.preventDefault();
     if (loginData.email && loginData.password) dispatch(userLogin(loginData));
   };
-
-  if (user) {
-    return <Navigate to={previousPath} replace={true} />;
-  }
 
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
