@@ -1,10 +1,17 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchVideos = createAsyncThunk("videos/fetchVideo", async () => {
-  const response = await axios.get("/api/videos");
-  return response.data.videos;
-});
+export const fetchVideos = createAsyncThunk(
+  "videos/fetchVideo",
+  async (_, {rejectWithValue}) => {
+    try {
+      const response = await axios.get("/api/videos");
+      return response.data.videos;
+    } catch (error) {
+      return rejectWithValue("Failed to fetch videos right now");
+    }
+  }
+);
 
 const initialState = {
   videosData: [],
