@@ -5,3 +5,5 @@ export {Playlist} from "./Playlist";
 export {History} from "./History";
 export {LikedVideos} from "./LikedVideos";
 export {Page404} from "./Page404";
+export {Login} from "./Login";
+export {SignUp} from "./SignUp";
