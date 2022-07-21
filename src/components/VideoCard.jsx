@@ -48,7 +48,7 @@ export const VideoCard = ({videoProps}) => {
         <button className="ml-1" onClick={() => setOpenOptions((prev) => !prev)}>
           <span className="material-icons-outlined">more_vert</span>
         </button>
-        {openOptions && <ThreeDotMenu />}
+        {openOptions && <ThreeDotMenu data={videoProps} />}
       </div>
     </div>
   );
