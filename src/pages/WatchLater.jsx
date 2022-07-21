@@ -1,9 +1,12 @@
 import {SideBar} from "../components/SideBar";
 import {useSelector} from "react-redux";
 import {VideoCard} from "../components/VideoCard";
+import {useDocumentTitle} from "../hooks/useDocumentTitle";
 
 export const WatchLater = () => {
   const {videosData} = useSelector((state) => state.watchLater);
+  useDocumentTitle("Watch Later | PLAYERONE");
+
   return (
     <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr] pt-4 dark:bg-[#252525] dark:text-white">
       <SideBar />

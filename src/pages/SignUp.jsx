@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {userSignUp} from "../redux/features/authSlice";
+import {useDocumentTitle} from "../hooks/useDocumentTitle";
 
 export const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
@@ -20,6 +21,7 @@ export const SignUp = () => {
     e.preventDefault();
     if (signUpData.email && signUpData.password) dispatch(userSignUp(signUpData));
   };
+  useDocumentTitle("Sign Up | PLAYERONE");
 
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
