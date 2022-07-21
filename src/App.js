@@ -19,7 +19,6 @@ import {
 function App() {
   const [darkTheme, setDarkTheme] = useState(true);
   const {token} = useSelector((store) => store.auth);
-  console.log(token);
   const location = useLocation();
   const previousRoute = location.state?.from?.pathname ?? "/explore";
 
