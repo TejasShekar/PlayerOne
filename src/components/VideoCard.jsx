@@ -32,6 +32,7 @@ export const VideoCard = ({videoProps}) => {
         src={`https://i.ytimg.com/vi/${_id}/hqdefault.jpg`}
         alt={title}
         onClick={() => navigate(`/explore/${_id}`)}
+        role="button"
       />
       <div className="flex justify-between items-start my-2 relative">
         <div className="flex">

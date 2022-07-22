@@ -10,7 +10,7 @@ export const WatchLater = () => {
   return (
     <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr] pt-4 dark:bg-[#252525] dark:text-white">
       <SideBar />
-      <main>
+      <main className="mx-4">
         {watchLaterVideos.length === 0 ? (
           <h2>No videos in Watch Later</h2>
         ) : (
