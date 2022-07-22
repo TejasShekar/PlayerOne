@@ -58,8 +58,9 @@ export const Login = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  setShowPassword((prev) => !prev);
                 }}
+                onMouseDown={() => setShowPassword(true)}
+                onMouseUp={() => setShowPassword(false)}
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">

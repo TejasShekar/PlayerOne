@@ -92,8 +92,9 @@ export const SignUp = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  setShowPassword((prev) => ({...prev, password: !prev.password}));
                 }}
+                onMouseDown={() => setShowPassword((prev) => ({...prev, password: true}))}
+                onMouseUp={() => setShowPassword((prev) => ({...prev, password: false}))}
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">
@@ -116,11 +117,16 @@ export const SignUp = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
+                }}
+                onMouseDown={() =>
                   setShowPassword((prev) => ({
                     ...prev,
-                    confirmPassword: !prev.confirmPassword,
-                  }));
-                }}
+                    confirmPassword: true,
+                  }))
+                }
+                onMouseUp={() =>
+                  setShowPassword((prev) => ({...prev, confirmPassword: false}))
+                }
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">
