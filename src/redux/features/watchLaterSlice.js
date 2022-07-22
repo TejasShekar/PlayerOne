@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  videosData: [],
+  watchLaterVideos: [],
   isLoading: false,
   error: null,
 };
@@ -53,7 +53,7 @@ export const watchLaterSlice = createSlice({
     },
     [addToWatchLater.fulfilled]: (state, {payload}) => {
       state.isLoading = false;
-      state.videosData = payload.watchlater.reverse();
+      state.watchLaterVideos = payload.watchlater.reverse();
     },
     [addToWatchLater.rejected]: (state) => {
       state.isLoading = false;
@@ -63,7 +63,7 @@ export const watchLaterSlice = createSlice({
     },
     [removeFromWatchLater.fulfilled]: (state, {payload}) => {
       state.isLoading = false;
-      state.videosData = payload.watchlater;
+      state.watchLaterVideos = payload.watchlater;
     },
     [removeFromWatchLater.rejected]: (state) => {
       state.isLoading = false;

@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {userLogin} from "../redux/features/authSlice";
+import {useDocumentTitle} from "../hooks/useDocumentTitle";
 
 export const Login = () => {
   const [loginData, setLoginData] = useState({email: "", password: ""});
@@ -17,6 +18,8 @@ export const Login = () => {
     e.preventDefault();
     if (loginData.email && loginData.password) dispatch(userLogin(loginData));
   };
+
+  useDocumentTitle("Login | PLAYERONE");
 
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
@@ -55,8 +58,9 @@ export const Login = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  setShowPassword((prev) => !prev);
                 }}
+                onMouseDown={() => setShowPassword(true)}
+                onMouseUp={() => setShowPassword(false)}
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">

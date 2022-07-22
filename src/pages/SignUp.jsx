@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {userSignUp} from "../redux/features/authSlice";
+import {useDocumentTitle} from "../hooks/useDocumentTitle";
 
 export const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
@@ -20,6 +21,7 @@ export const SignUp = () => {
     e.preventDefault();
     if (signUpData.email && signUpData.password) dispatch(userSignUp(signUpData));
   };
+  useDocumentTitle("Sign Up | PLAYERONE");
 
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
@@ -90,8 +92,9 @@ export const SignUp = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  setShowPassword((prev) => ({...prev, password: !prev.password}));
                 }}
+                onMouseDown={() => setShowPassword((prev) => ({...prev, password: true}))}
+                onMouseUp={() => setShowPassword((prev) => ({...prev, password: false}))}
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">
@@ -114,11 +117,16 @@ export const SignUp = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
+                }}
+                onMouseDown={() =>
                   setShowPassword((prev) => ({
                     ...prev,
-                    confirmPassword: !prev.confirmPassword,
-                  }));
-                }}
+                    confirmPassword: true,
+                  }))
+                }
+                onMouseUp={() =>
+                  setShowPassword((prev) => ({...prev, confirmPassword: false}))
+                }
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">

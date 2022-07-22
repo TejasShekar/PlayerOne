@@ -1,7 +1,10 @@
 import {Link} from "react-router-dom";
 import {Categories} from "../components/Categories";
+import {useDocumentTitle} from "../hooks/useDocumentTitle";
 
 export const HomePage = () => {
+  useDocumentTitle("PLAYERONE");
+
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
       <div className="flex flex-col items-center w-2/3 mx-auto">

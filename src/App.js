@@ -14,6 +14,7 @@ import {
   Page404,
   Login,
   SignUp,
+  SingleVideo,
 } from "./pages";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/explore/:videoId" element={<SingleVideo />} />
         <Route element={<RequireAuth />}>
           <Route path="/watch-later" element={<WatchLater />} />
           <Route path="/playlist" element={<Playlist />} />

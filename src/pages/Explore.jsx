@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Categories} from "../components/Categories";
 import {SideBar} from "../components/SideBar";
 import {VideoCard} from "../components/VideoCard";
+import {useDocumentTitle} from "../hooks/useDocumentTitle";
 import {fetchVideos} from "../redux/features/videoSlice";
 
 const filterVideosByCategory = (data, category) => {
@@ -16,6 +17,7 @@ export const Explore = () => {
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
+  useDocumentTitle("Explore | PLAYERONE");
 
   const filteredVideos = filterVideosByCategory(videosData, selectedCategory);
 
