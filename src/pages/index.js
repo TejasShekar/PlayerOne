@@ -7,3 +7,4 @@ export {LikedVideos} from "./LikedVideos";
 export {Page404} from "./Page404";
 export {Login} from "./Login";
 export {SignUp} from "./SignUp";
+export {SingleVideo} from "./SingleVideo";

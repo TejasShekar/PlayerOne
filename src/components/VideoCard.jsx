@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import {getFormattedViewCount} from "../utils/getFormattedViewCount";
 import {ThreeDotMenu} from "./ThreeDotMenu";
+import {useNavigate} from "react-router-dom";
 
 export const VideoCard = ({videoProps}) => {
   const [error, setError] = useState(false);
@@ -9,6 +10,7 @@ export const VideoCard = ({videoProps}) => {
   const {_id, title, creator, creatorID, views, uploadDate} = videoProps;
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -26,7 +28,11 @@ export const VideoCard = ({videoProps}) => {
 
   return (
     <div ref={videoCardRef}>
-      <img src={`https://i.ytimg.com/vi/${_id}/hqdefault.jpg`} alt={title} />
+      <img
+        src={`https://i.ytimg.com/vi/${_id}/hqdefault.jpg`}
+        alt={title}
+        onClick={() => navigate(`/explore/${_id}`)}
+      />
       <div className="flex justify-between items-start my-2 relative">
         <div className="flex">
           <img
