@@ -1,13 +1,18 @@
 import {useEffect, useState} from "react";
 import {SideBar} from "../components/SideBar";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useDocumentTitle} from "../hooks/useDocumentTitle";
 import {VideoPlayer} from "../components/VideoPlayer";
 import {getFormattedViewCount} from "../utils/getFormattedViewCount";
 import {addToWatchLater, removeFromWatchLater} from "../redux/features/watchLaterSlice";
-import {isVideoInHistory, isVideoInWatchLater} from "../utils/videoActionHelps";
+import {
+  isVideoInHistory,
+  isVideoInWatchLater,
+  isVideoInLikedVideos,
+} from "../utils/videoActionHelps";
 import {addToHistory} from "../redux/features/historySlice";
+import {addToLikedVideos, removeFromLikedVideos} from "../redux/features/likedSlice";
 
 
 export const SingleVideo = () => {
@@ -17,10 +22,15 @@ export const SingleVideo = () => {
   const {videosData, isLoading} = useSelector((state) => state.videos);
   const {watchLaterVideos} = useSelector((state) => state.watchLater);
   const {history} = useSelector((state) => state.history);
+  const {likedVideos} = useSelector((state) => state.liked);
   const currentVideo = videosData.find((video) => video._id === videoId);
   const {_id, title, creator, creatorID, views, uploadDate, description} = currentVideo;
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
+  const {token} = useSelector((state) => state.auth);
+  const foundInWatchLater = isVideoInWatchLater(_id, watchLaterVideos);
+  const foundInLikedVideos = isVideoInLikedVideos(_id, likedVideos);
+  const navigate = useNavigate();
 
   useDocumentTitle(`${title} | PLAYERONE`);
   useEffect(() => {
@@ -48,30 +58,50 @@ export const SingleVideo = () => {
             {/* Action buttons */}
             <div>
               <div className="flex flex-row gap-4 text-md my-auto mt-2">
-                <button className="flex center">
-                  <span className="material-icons-outlined mr-2">thumb_up</span> Like
+                <button
+                  className="flex center"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    token
+                      ? foundInLikedVideos
+                        ? dispatch(removeFromLikedVideos(_id))
+                        : dispatch(addToLikedVideos(currentVideo))
+                      : navigate("/login");
+                  }}
+                >
+                  <span
+                    className={`${
+                      foundInLikedVideos ? "material-icons" : "material-icons-outlined"
+                    } mr-2`}
+                  >
+                    thumb_up
+                  </span>
+                  {foundInLikedVideos ? "Liked" : "Like"}
                 </button>
                 <button className="flex center">
                   <span className="material-icons-outlined mr-2">playlist_add</span>Add to
                   Playlist
                 </button>
-                {isVideoInWatchLater(_id, watchLaterVideos) ? (
-                  <button
-                    className="flex center"
-                    onClick={() => dispatch(removeFromWatchLater(_id))}
+                <button
+                  className="flex center"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    token
+                      ? foundInWatchLater
+                        ? dispatch(removeFromWatchLater(_id))
+                        : dispatch(addToWatchLater(currentVideo))
+                      : navigate("/login");
+                  }}
+                >
+                  <span
+                    className={`${
+                      foundInWatchLater ? "material-icons" : "material-icons-outlined"
+                    } mr-2`}
                   >
-                    <span className="material-icons mr-2">watch_later</span>Remove from
-                    Watch Later
-                  </button>
-                ) : (
-                  <button
-                    className="flex center"
-                    onClick={() => dispatch(addToWatchLater(currentVideo))}
-                  >
-                    <span className="material-icons-outlined mr-2">more_time</span>Add to
-                    Watch Later
-                  </button>
-                )}
+                    {foundInWatchLater ? "watch_later" : "more_time"}
+                  </span>
+                  {foundInWatchLater ? "Remove from" : "Add to"} Watch Later
+                </button>
               </div>
             </div>
 

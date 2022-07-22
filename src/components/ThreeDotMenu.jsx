@@ -2,6 +2,7 @@ import React from "react";
 import {useSelector, useDispatch} from "react-redux/es/exports";
 import {useLocation, useNavigate} from "react-router-dom";
 import {removeFromHistory} from "../redux/features/historySlice";
+import {removeFromLikedVideos} from "../redux/features/likedSlice";
 import {addToWatchLater, removeFromWatchLater} from "../redux/features/watchLaterSlice";
 import {isVideoInWatchLater} from "../utils/videoActionHelps";
 
@@ -47,6 +48,18 @@ export const ThreeDotMenu = ({data}) => {
           }}
         >
           <span className="material-icons-outlined mr-2">block</span>Remove From History
+        </button>
+      ) : null}
+      {token && pathname === "/liked" ? (
+        <button
+          className="flex center"
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(removeFromLikedVideos(data._id));
+          }}
+        >
+          <span className="material-icons-outlined mr-2">block</span>Remove From Liked
+          Videos
         </button>
       ) : null}
     </div>
