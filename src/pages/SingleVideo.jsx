@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {SideBar} from "../components/SideBar";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,7 +6,8 @@ import {useDocumentTitle} from "../hooks/useDocumentTitle";
 import {VideoPlayer} from "../components/VideoPlayer";
 import {getFormattedViewCount} from "../utils/getFormattedViewCount";
 import {addToWatchLater, removeFromWatchLater} from "../redux/features/watchLaterSlice";
-import {isVideoInWatchLater} from "../utils/isVideoInWatchLater";
+import {isVideoInHistory, isVideoInWatchLater} from "../utils/videoActionHelps";
+import {addToHistory} from "../redux/features/historySlice";
 
 
 export const SingleVideo = () => {
@@ -15,12 +16,19 @@ export const SingleVideo = () => {
   const [error, setError] = useState(false);
   const {videosData, isLoading} = useSelector((state) => state.videos);
   const {watchLaterVideos} = useSelector((state) => state.watchLater);
+  const {history} = useSelector((state) => state.history);
   const currentVideo = videosData.find((video) => video._id === videoId);
   const {_id, title, creator, creatorID, views, uploadDate, description} = currentVideo;
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
 
   useDocumentTitle(`${title} | PLAYERONE`);
+  useEffect(() => {
+    if (!isVideoInHistory(_id, history)) {
+      dispatch(addToHistory(currentVideo));
+    }
+  }, [_id, currentVideo, dispatch, history]);
+
   return (
     <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr] gap-4 pt-4 dark:bg-[#252525] dark:text-white">
       <SideBar />
