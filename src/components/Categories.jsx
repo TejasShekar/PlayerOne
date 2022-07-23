@@ -14,11 +14,11 @@ export const Categories = ({currentCategory}) => {
       {categories.map((category) => (
         <button
           key={category}
+          value={category}
           onClick={(e) => {
             dispatch(filterByCategory(e.target.value));
             if (pathname === "/") navigate("/explore");
           }}
-          value={category}
           className={`mx-2 border-[#eea53f] border-2 rounded-full px-4 py-1 ${
             currentCategory === category ? "bg-[#eea53f] text-black" : ""
           }`}

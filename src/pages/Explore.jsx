@@ -23,7 +23,7 @@ export const Explore = () => {
       ) : (
         <main className="mx-4">
           <Categories currentCategory={selectedCategory} />
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))]  gap-4">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] gap-4 mt-6">
             {filteredVideos.map((video) => (
               <VideoCard key={video._id} videoProps={video} />
             ))}
