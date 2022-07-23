@@ -12,7 +12,7 @@ export const LikedVideos = () => {
       <SideBar />
       <main className="mx-4">
         {likedVideos.length === 0 ? (
-          <h2>No videos in Watch Later</h2>
+          <h2>You have not liked any videos yet !</h2>
         ) : (
           <div className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))]  gap-4">
             {likedVideos.map((video) => (

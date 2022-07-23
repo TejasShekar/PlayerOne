@@ -1,10 +1,8 @@
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Categories} from "../components/Categories";
 import {SideBar} from "../components/SideBar";
 import {VideoCard} from "../components/VideoCard";
 import {useDocumentTitle} from "../hooks/useDocumentTitle";
-import {fetchVideos} from "../redux/features/videoSlice";
 
 const filterVideosByCategory = (data, category) => {
   if (category.toLowerCase() === "all") return data;
@@ -12,11 +10,7 @@ const filterVideosByCategory = (data, category) => {
 };
 
 export const Explore = () => {
-  const dispatch = useDispatch();
   const {videosData, isLoading, selectedCategory} = useSelector((state) => state.videos);
-  useEffect(() => {
-    dispatch(fetchVideos());
-  }, [dispatch]);
   useDocumentTitle("Explore | PLAYERONE");
 
   const filteredVideos = filterVideosByCategory(videosData, selectedCategory);

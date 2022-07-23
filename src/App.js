@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {useSelector} from "react-redux";
+import {useEffect, useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import {NavBar} from "./components/NavBar";
 import {RequireAuth} from "./components/RequiresAuth";
@@ -16,12 +16,18 @@ import {
   SignUp,
   SingleVideo,
 } from "./pages";
+import {fetchVideos} from "./redux/features/videoSlice";
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(true);
   const {token} = useSelector((store) => store.auth);
   const location = useLocation();
+  const dispatch = useDispatch();
   const previousRoute = location.state?.from?.pathname ?? "/explore";
+
+  useEffect(() => {
+    dispatch(fetchVideos());
+  }, [dispatch]);
 
   return (
     <div className={darkTheme ? "dark" : "light"}>
