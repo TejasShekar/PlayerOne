@@ -16,7 +16,7 @@ export const fetchVideos = createAsyncThunk(
 const initialState = {
   videosData: [],
   selectedCategory: "All",
-  isLoading: false,
+  isLoading: true,
   error: null,
 };
 

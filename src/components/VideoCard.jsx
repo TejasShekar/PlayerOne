@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import {getFormattedViewCount} from "../utils/getFormattedViewCount";
 import {ThreeDotMenu} from "./ThreeDotMenu";
-import {useNavigate, useLocation, Link} from "react-router-dom";
+import {useLocation, Link} from "react-router-dom";
 
 export const VideoCard = ({videoProps}) => {
   const [error, setError] = useState(false);
@@ -10,7 +10,6 @@ export const VideoCard = ({videoProps}) => {
   const {_id, title, creator, creatorID, views, uploadDate} = videoProps;
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
-  const navigate = useNavigate();
   const {pathname} = useLocation();
 
   useEffect(() => {
