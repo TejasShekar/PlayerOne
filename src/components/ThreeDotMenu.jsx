@@ -3,8 +3,10 @@ import {useSelector, useDispatch} from "react-redux/es/exports";
 import {useLocation, useNavigate} from "react-router-dom";
 import {removeFromHistory} from "../redux/features/historySlice";
 import {removeFromLikedVideos} from "../redux/features/likedSlice";
+import {setIsModalOpen} from "../redux/features/playlistSlice";
 import {addToWatchLater, removeFromWatchLater} from "../redux/features/watchLaterSlice";
 import {isVideoInWatchLater} from "../utils/videoActionHelps";
+import {PlaylistModal} from "./PlaylistModal";
 
 export const ThreeDotMenu = ({data}) => {
   const {watchLaterVideos} = useSelector((state) => state.watchLater);
@@ -13,10 +15,17 @@ export const ThreeDotMenu = ({data}) => {
   const navigate = useNavigate();
   const foundInWatchLater = isVideoInWatchLater(data._id, watchLaterVideos);
   const {pathname} = useLocation();
+  const {isModalOpen} = useSelector((state) => state.playlist);
 
   return (
     <div className="flex flex-col gap-4 text-md my-auto bg-[#f9f9f9] dark:bg-black absolute right-6 top-0 shadow-sm shadow-black rounded p-2">
-      <button className="flex center">
+      <button
+        className="flex center"
+        onClick={(e) => {
+          e.stopPropagation();
+          token ? dispatch(setIsModalOpen(true)) : navigate("/login");
+        }}
+      >
         <span className="material-icons-outlined mr-2">playlist_add</span>Add to Playlist
       </button>
       <button
@@ -62,6 +71,7 @@ export const ThreeDotMenu = ({data}) => {
           Videos
         </button>
       ) : null}
+      {isModalOpen && <PlaylistModal videoData={data} />}
     </div>
   );
 };
