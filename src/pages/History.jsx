@@ -14,6 +14,7 @@ export const History = () => {
     <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr] pt-4 dark:bg-[#252525] dark:text-white">
       <SideBar />
       <main className="mx-4">
+        <h1 className="text-3xl font-bold mb-4">History</h1>
         {history.length === 0 ? (
           <h2>No History Available</h2>
         ) : (
