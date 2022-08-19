@@ -74,7 +74,7 @@ export const PlaylistModal = ({videoData}) => {
                       onChange={() => handleVideoInPlaylist(_id, videoData._id)}
                     />
                     <label htmlFor={_id} className="px-2">
-                      {title}
+                      {title.length > 16 ? `${title.substring(0, 16)}.....` : title}
                     </label>
                   </div>
                 );
