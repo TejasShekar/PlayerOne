@@ -49,23 +49,25 @@ export const PlaylistModal = ({videoData}) => {
 
   return ReactDOM.createPortal(
     <div className="top-0 bottom-0 left-0 right-0 fixed flex items-center justify-center bg-black/[0.6] z-[999] text-lg">
-      <div ref={playlistDialog} className=" bg-[#eea53f] w-96 p-4 rounded-lg">
-        <div className="w-full text-center">
+      <div ref={playlistDialog} className=" bg-[#f0f0f0] w-96 py-4 rounded-lg">
+        <div className="w-full text-center px-4">
           {pathname === "/playlist" ? (
             <p className=" font-bold text-2xl my-2">Create new playlist</p>
           ) : (
-            <p className=" font-bold text-2xl my-2">Save To</p>
+            <>
+              <p className=" font-bold text-2xl my-2">Save To</p>
+              <div className=" border-t-2 border-t-black"></div>
+            </>
           )}
-          <div className=" border-t-2 border-t-black"></div>
         </div>
         {pathname !== "/playlist" && (
-          <div className=" w-full my-4 max-h-48 overflow-auto">
+          <ul className=" w-full my-4 max-h-48 overflow-auto">
             {playlists.length === 0 ? (
               <p className="text-center">No saved playlists. Create one now !</p>
             ) : (
               playlists.map(({title, _id}) => {
                 return (
-                  <div key={_id}>
+                  <li key={_id} className="flex hover:bg-[#dedede] px-4 py-1">
                     <input
                       type="checkbox"
                       value={title}
@@ -73,39 +75,45 @@ export const PlaylistModal = ({videoData}) => {
                       checked={isVideoInPlaylist(playlists, _id, videoData._id)}
                       onChange={() => handleVideoInPlaylist(_id, videoData._id)}
                     />
-                    <label htmlFor={_id} className="px-2">
+                    <label htmlFor={_id} className="px-2 w-full ">
                       {title.length > 16 ? `${title.substring(0, 16)}.....` : title}
                     </label>
-                  </div>
+                  </li>
                 );
               })
             )}
-          </div>
+          </ul>
         )}
-        <div className="w-full">
-          <div className=" border-t-2 w-full border-t-black"></div>
+        <div className="w-full px-4">
           {openCreatePlaylist || pathname === "/playlist" ? (
             <form onSubmit={createPlaylistHandler}>
               <input
                 type="text"
                 placeholder="Type your new playlist name here"
-                className="w-full flex"
+                className="w-full rounded p-1 my-2"
                 value={playlistName}
                 onChange={(e) => setPlaylistName(e.target.value)}
                 autoFocus
               />
-              <button type="submit" onClick={(e) => e.stopPropagation()}>
+              <button
+                type="submit"
+                onClick={(e) => e.stopPropagation()}
+                className="font-bold mt-2 bg-[#ec8d08] w-full rounded-md p-1 hover:bg-[#eea53f]"
+              >
                 Create Playlist
               </button>
             </form>
           ) : (
-            <button
-              className="flex items-center font-bold mt-2 mx-auto"
-              onClick={() => setOpenCreatePlaylist(true)}
-            >
-              <span className="material-icons-outlined mr-2">add</span>
-              Create a new playlist
-            </button>
+            <>
+              <div className=" border-t-2 w-full border-t-black my-1"></div>
+              <button
+                className="flex items-center justify-center font-bold mt-2 bg-[#ec8d08] w-full rounded-md p-1 hover:bg-[#eea53f]"
+                onClick={() => setOpenCreatePlaylist(true)}
+              >
+                <span className="material-icons-outlined mr-2 ">add</span>
+                Create a new playlist
+              </button>
+            </>
           )}
         </div>
       </div>

@@ -1,9 +1,13 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux/es/exports";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {removeFromHistory} from "../redux/features/historySlice";
 import {removeFromLikedVideos} from "../redux/features/likedSlice";
-import {setIsModalOpen} from "../redux/features/playlistSlice";
+import {
+  removePlaylist,
+  removeVideoFromPlaylist,
+  setIsModalOpen,
+} from "../redux/features/playlistSlice";
 import {addToWatchLater, removeFromWatchLater} from "../redux/features/watchLaterSlice";
 import {isVideoInWatchLater} from "../utils/videoActionHelps";
 import {PlaylistModal} from "./PlaylistModal";
@@ -16,6 +20,7 @@ export const ThreeDotMenu = ({data}) => {
   const foundInWatchLater = isVideoInWatchLater(data._id, watchLaterVideos);
   const {pathname} = useLocation();
   const {isModalOpen} = useSelector((state) => state.playlist);
+  const {playlistId} = useParams();
 
   return (
     <div className="flex flex-col gap-4 text-md my-auto bg-[#f9f9f9] dark:bg-black absolute right-6 top-0 shadow-sm shadow-black rounded p-2">
@@ -71,6 +76,19 @@ export const ThreeDotMenu = ({data}) => {
           Videos
         </button>
       ) : null}
+      {token && pathname === `/playlist/${playlistId}` && (
+        <button
+          className="flex center"
+          onClick={(e) => {
+            e.stopPropagation();
+            const videoId = data._id;
+            token && dispatch(removeVideoFromPlaylist({videoId, playlistId}));
+          }}
+        >
+          <span className="material-icons-outlined mr-2">block</span>Remove from current
+          playlist
+        </button>
+      )}
       {isModalOpen && <PlaylistModal videoData={data} />}
     </div>
   );
