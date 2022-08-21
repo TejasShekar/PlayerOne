@@ -1,6 +1,13 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
+const initialState = {
+  videosData: [],
+  selectedCategory: "All",
+  isLoading: true,
+  error: null,
+};
+
 export const fetchVideos = createAsyncThunk(
   "videos/fetchVideo",
   async (_, {rejectWithValue}) => {
@@ -12,13 +19,6 @@ export const fetchVideos = createAsyncThunk(
     }
   }
 );
-
-const initialState = {
-  videosData: [],
-  selectedCategory: "All",
-  isLoading: true,
-  error: null,
-};
 
 const videoSlice = createSlice({
   name: "videos",

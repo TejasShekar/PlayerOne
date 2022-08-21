@@ -16,6 +16,7 @@ import {
   SignUp,
   SingleVideo,
 } from "./pages";
+import {SinglePlaylist} from "./pages/SinglePlaylist";
 import {fetchVideos} from "./redux/features/videoSlice";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/watch-later" element={<WatchLater />} />
           <Route path="/playlist" element={<Playlist />} />
+          <Route path="playlist/:playlistId" element={<SinglePlaylist />} />
           <Route path="/history" element={<History />} />
           <Route path="/liked" element={<LikedVideos />} />
         </Route>

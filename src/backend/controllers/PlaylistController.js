@@ -67,9 +67,7 @@ export const removePlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const playlistId = request.params.playlistId;
-    const filteredPlaylists = user.playlists.filter(
-      (item) => item._id !== playlistId
-    );
+    const filteredPlaylists = user.playlists.filter((item) => item._id !== playlistId);
     this.db.users.update({playlists: filteredPlaylists});
     return new Response(200, {}, {playlists: filteredPlaylists});
   }
@@ -141,9 +139,7 @@ export const removeVideoFromPlaylistHandler = function (schema, request) {
     const playlistId = request.params.playlistId;
     const videoId = request.params.videoId;
     let playlist = user.playlists.find((item) => item._id === playlistId);
-    const filteredVideos = playlist.videos.filter(
-      (item) => item._id !== videoId
-    );
+    const filteredVideos = playlist.videos.filter((item) => item._id !== videoId);
     playlist.videos = filteredVideos;
     return new Response(200, {}, {playlist});
   }

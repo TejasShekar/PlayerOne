@@ -12,6 +12,8 @@ import {
 import {useDocumentTitle} from "../hooks/useDocumentTitle";
 import {addToHistory} from "../redux/features/historySlice";
 import {useNavigate} from "react-router-dom";
+import {setIsModalOpen} from "../redux/features/playlistSlice";
+import {PlaylistModal} from "./PlaylistModal";
 
 export const SingleVideoPlayer = ({video}) => {
   const {_id, title, creator, creatorID, views, uploadDate, description} = video;
@@ -22,6 +24,7 @@ export const SingleVideoPlayer = ({video}) => {
   const {watchLaterVideos} = useSelector((state) => state.watchLater);
   const {history} = useSelector((state) => state.history);
   const {likedVideos} = useSelector((state) => state.liked);
+  const {isModalOpen} = useSelector((state) => state.playlist);
 
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
@@ -70,7 +73,13 @@ export const SingleVideoPlayer = ({video}) => {
               </span>
               {foundInLikedVideos ? "Liked" : "Like"}
             </button>
-            <button className="flex center">
+            <button
+              className="flex center"
+              onClick={(e) => {
+                e.stopPropagation();
+                token ? dispatch(setIsModalOpen(true)) : navigate("/login");
+              }}
+            >
               <span className="material-icons-outlined mr-2">playlist_add</span>Add to
               Playlist
             </button>
@@ -97,7 +106,7 @@ export const SingleVideoPlayer = ({video}) => {
           </div>
         </div>
 
-        {/* Creator Info */}
+        {/* Video Info */}
         <div className="flex">
           <img
             src={error ? fallbackSrc : mainImgSrc}
@@ -109,6 +118,7 @@ export const SingleVideoPlayer = ({video}) => {
         </div>
         <p className=" leading-[1.7] text-justify">{description}</p>
       </div>
+      {isModalOpen && <PlaylistModal videoData={video} />}
     </div>
   );
 };
