@@ -14,13 +14,13 @@ export const SinglePlaylist = () => {
       <SideBar />
       <main className="mx-4">
         <h1 className="text-3xl">{currentPlaylist?.title}</h1>
+        {currentPlaylist?.videos.length === 0 && (
+          <p>You have not added any videos to this playlist yet !</p>
+        )}
         <div className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] gap-4 mt-6">
           {currentPlaylist?.videos.map((video) => (
             <VideoCard key={video._id} videoProps={video} />
           ))}
-          {currentPlaylist?.videos.length === 0 && (
-            <p>You have not added any videos to this playlist yet !</p>
-          )}
         </div>
       </main>
     </div>
