@@ -37,6 +37,9 @@ export const PlaylistModal = ({videoData}) => {
     } else {
       setPlaylistName("");
     }
+    if (pathname === "/playlist") {
+      dispatch(setIsModalOpen(false));
+    }
   };
 
   const handleVideoInPlaylist = (playlistID, videoID) => {

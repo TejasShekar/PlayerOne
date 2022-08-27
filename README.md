@@ -1,3 +1,3 @@
 ## Player One
 
-Your one stop video library for all your gaming hunger !
+A custom video library for the gamer inside you !
