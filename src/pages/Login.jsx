@@ -1,11 +1,11 @@
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {userLogin} from "../redux/features/authSlice";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../redux/features/authSlice";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export const Login = () => {
-  const [loginData, setLoginData] = useState({email: "", password: ""});
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ export const Login = () => {
               required
               value={loginData.email}
               placeholder="user.name@email.com"
-              onChange={(e) => setLoginData((prev) => ({...prev, email: e.target.value}))}
+              onChange={(e) => setLoginData((prev) => ({ ...prev, email: e.target.value }))}
             />
           </div>
           <div className="flex flex-col gap-2 m-2 ">
@@ -51,9 +51,7 @@ export const Login = () => {
                 className="dark:text-white w-full border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
                 required
                 value={loginData.password}
-                onChange={(e) =>
-                  setLoginData((prev) => ({...prev, password: e.target.value}))
-                }
+                onChange={(e) => setLoginData((prev) => ({ ...prev, password: e.target.value }))}
               />
               <button
                 onClick={(e) => {
@@ -62,6 +60,7 @@ export const Login = () => {
                 onMouseDown={() => setShowPassword(true)}
                 onMouseUp={() => setShowPassword(false)}
                 className="absolute top-2 right-2"
+                title="Show/Hide Password"
               >
                 <span className="material-icons-outlined">
                   {showPassword ? "visibility_off" : "visibility"}
@@ -70,10 +69,7 @@ export const Login = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <button
-              type="submit"
-              className="bg-[#eeaf23] m-2 p-2 rounded-lg text-black font-bold"
-            >
+            <button type="submit" className="bg-[#eeaf23] m-2 p-2 rounded-lg text-black font-bold">
               Login
             </button>
             <button
