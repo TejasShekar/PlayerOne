@@ -1,18 +1,18 @@
-import {useEffect, useRef, useState} from "react";
-import {getFormattedViewCount} from "../utils/getFormattedViewCount";
-import {ThreeDotMenu} from "./ThreeDotMenu";
-import {useLocation, Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { getFormattedViewCount } from "../utils/getFormattedViewCount";
+import { ThreeDotMenu } from "./ThreeDotMenu";
+import { useLocation, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export const VideoCard = ({videoProps}) => {
+export const VideoCard = ({ videoProps }) => {
   const [error, setError] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
   const videoCardRef = useRef(null);
-  const {_id, title, creator, creatorID, views, uploadDate} = videoProps;
+  const { _id, title, creator, creatorID, views, uploadDate } = videoProps;
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
-  const {pathname} = useLocation();
-  const {isModalOpen} = useSelector((state) => state.playlist);
+  const { pathname } = useLocation();
+  const { isModalOpen } = useSelector((state) => state.playlist);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -32,13 +32,19 @@ export const VideoCard = ({videoProps}) => {
   return (
     <div ref={videoCardRef}>
       <Link to={`/explore/${_id}`}>
-        <img src={`https://i.ytimg.com/vi/${_id}/hq720.jpg`} alt={title} role="button" />
+        <img
+          loading="lazy"
+          src={`https://i.ytimg.com/vi/${_id}/hq720.jpg`}
+          alt={title}
+          role="button"
+        />
       </Link>
       <div className="relative">
         <div className="flex justify-between items-start my-2">
           <Link to={`/explore/${_id}`}>
             <div className="flex">
               <img
+                loading="lazy"
                 src={error ? fallbackSrc : mainImgSrc}
                 alt="Creator Logo"
                 className=" rounded-full w-10 h-10  mr-2"
