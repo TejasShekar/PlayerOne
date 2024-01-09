@@ -1,8 +1,8 @@
-import {useSelector} from "react-redux";
-import {Categories} from "../components/Categories";
-import {SideBar} from "../components/SideBar";
-import {VideoCard} from "../components/VideoCard";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
+import { useSelector } from "react-redux";
+import { Categories } from "../components/Categories";
+import { SideBar } from "../components/SideBar";
+import { VideoCard } from "../components/VideoCard";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 const filterVideosByCategory = (data, category) => {
   if (category.toLowerCase() === "all") return data;
@@ -10,7 +10,9 @@ const filterVideosByCategory = (data, category) => {
 };
 
 export const Explore = () => {
-  const {videosData, isLoading, selectedCategory} = useSelector((state) => state.videos);
+  const { videosData, isLoading, selectedCategory } = useSelector(
+    (state) => state.videos
+  );
   useDocumentTitle("Explore | PLAYERONE");
 
   const filteredVideos = filterVideosByCategory(videosData, selectedCategory);
@@ -33,3 +35,5 @@ export const Explore = () => {
     </div>
   );
 };
+
+// Checkout https://playynow.netlify.app for design inspiration
