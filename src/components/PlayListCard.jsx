@@ -1,16 +1,17 @@
 import React from "react";
-import {useDispatch} from "react-redux";
-import {Link} from "react-router-dom";
-import {removePlaylist} from "../redux/features/playlistSlice";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { removePlaylist } from "../redux/features/playlistSlice";
 
-export const PlayListCard = ({data}) => {
-  const {title, videos, _id} = data;
+export const PlayListCard = ({ data }) => {
+  const { title, videos, _id } = data;
   const dispatch = useDispatch();
 
   return (
     <div className=" text-lg border-2 border-[#eeaf53] rounded">
       <Link to={`/playlist/${_id}`} className="relative">
         <img
+          loading="lazy"
           src={
             videos?.length !== 0
               ? `https://i.ytimg.com/vi/${videos[0]?._id}/hq720.jpg`
