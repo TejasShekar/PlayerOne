@@ -1,13 +1,12 @@
 import React from "react";
-import {Link, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import fallback_DP from "../assets/fallback_DP.jpg";
-import {userLogOut} from "../redux/features/authSlice";
+import { userLogOut } from "../redux/features/authSlice";
 
-export const NavBar = ({theme}) => {
-  const {darkTheme, setDarkTheme} = theme;
-  const navigate = useNavigate();
+export const NavBar = ({ theme }) => {
+  const { darkTheme, setDarkTheme } = theme;
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.userData);
 
@@ -34,14 +33,13 @@ export const NavBar = ({theme}) => {
               <img
                 className="rounded-[50%] border-[1px] border-black"
                 // http://xsgames.co/randomusers/assets/avatars/pixel/${random_number}.jpg -> use this link to get an random number between 0 and 53 and assign that img as profile picture to a new user.
-                src={fallback_DP}
+                // src={fallback_DP}
                 alt="profile_img"
               />
             </figure>
             <button
               onClick={() => {
                 dispatch(userLogOut());
-                navigate("/login");
               }}
             >
               <span className="material-icons-outlined">logout</span>
