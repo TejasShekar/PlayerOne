@@ -1,0 +1,18 @@
+# Ignore artifacts and dependencies
+node_modules
+build
+dist
+coverage
+.DS_Store
+.env
+.env.*
+*.log
+
+# Ignore Vite/CRA output
+public/build
+
+# Ignore test coverage
+coverage
+
+# Ignore already ignored by git
+# (optional, but keeps Prettier in sync with .gitignore)
