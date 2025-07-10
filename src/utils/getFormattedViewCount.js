@@ -1,9 +1,9 @@
 export function getFormattedViewCount(views) {
-  let count = Number(views.split(",").join(""));
+  let count = Number(views.split(',').join(''));
   if (count > 999 && count < 1000000) {
-    return parseInt(count / 1000) + "k";
+    return parseInt(count / 1000) + 'k';
   } else if (count > 1000000) {
-    return parseInt(count / 1000000) + "M";
+    return parseInt(count / 1000000) + 'M';
   } else if (count <= 999) {
     return count;
   }

@@ -1,5 +1,5 @@
-import {v4 as uuid} from "uuid";
-import {formatDate} from "../utils/authUtils";
+import { v4 as uuid } from 'uuid';
+import { formatDate } from '../utils/authUtils';
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -9,19 +9,19 @@ import {formatDate} from "../utils/authUtils";
 export const users = [
   {
     _id: uuid(),
-    firstName: "Tejas",
-    lastName: "Shekar",
-    email: "tejas@playerOne.com",
-    password: "admin@GameON!",
+    firstName: 'Tejas',
+    lastName: 'Shekar',
+    email: 'tejas@playerOne.com',
+    password: 'admin@GameON!',
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-    firstName: "Guest",
-    lastName: "User",
-    email: "guest@playerOne.com",
-    password: "guest@123",
+    firstName: 'Guest',
+    lastName: 'User',
+    email: 'guest@playerOne.com',
+    password: 'guest@123',
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

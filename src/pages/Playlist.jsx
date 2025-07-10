@@ -1,15 +1,15 @@
-import {SideBar} from "../components/SideBar";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
-import {useDispatch, useSelector} from "react-redux";
-import {Link, useNavigate} from "react-router-dom";
-import {PlayListCard} from "../components/PlayListCard";
-import {PlaylistModal} from "../components/PlaylistModal";
-import {setIsModalOpen} from "../redux/features/playlistSlice";
+import { SideBar } from '../components/SideBar';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { PlayListCard } from '../components/PlayListCard';
+import { PlaylistModal } from '../components/PlaylistModal';
+import { setIsModalOpen } from '../redux/features/playlistSlice';
 
 export const Playlist = () => {
-  useDocumentTitle("Playlists | PLAYERONE");
-  const {playlists, isModalOpen} = useSelector((state) => state.playlist);
-  const {token} = useSelector((state) => state.auth);
+  useDocumentTitle('Playlists | PLAYERONE');
+  const { playlists, isModalOpen } = useSelector((state) => state.playlist);
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export const Playlist = () => {
             className=" bg-[#eea53f] font-bold text-xl p-2 rounded-lg text-black mr-2 px-4"
             onClick={(e) => {
               e.stopPropagation();
-              token ? dispatch(setIsModalOpen(true)) : navigate("/login");
+              token ? dispatch(setIsModalOpen(true)) : navigate('/login');
             }}
           >
             Create a Playlist
@@ -32,10 +32,10 @@ export const Playlist = () => {
         {playlists?.length === 0 ? (
           <>
             <div>
-              You have no playlists yet.{" "}
+              You have no playlists yet.{' '}
               <Link to="/explore">
                 <button className=" hover:underline font-bold">Click here</button>
-              </Link>{" "}
+              </Link>{' '}
               to go to explore page to add videos to playlist.
             </div>
           </>

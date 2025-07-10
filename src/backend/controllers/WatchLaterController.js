@@ -1,5 +1,5 @@
-import {Response} from "miragejs";
-import {requiresAuth} from "../utils/authUtils";
+import { Response } from 'miragejs';
+import { requiresAuth } from '../utils/authUtils';
 
 /**
  * All the routes related to Watch Later Videos are present here.
@@ -20,18 +20,18 @@ export const getWatchLaterVideosHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
-        }
+          errors: ['The email you entered is not Registered. Not Found error'],
+        },
       );
     }
-    return new Response(200, {}, {watchlater: user.watchlater});
+    return new Response(200, {}, { watchlater: user.watchlater });
   } catch (error) {
     return new Response(
       500,
       {},
       {
         error,
-      }
+      },
     );
   }
 };
@@ -45,25 +45,25 @@ export const getWatchLaterVideosHandler = function (schema, request) {
 export const addItemToWatchLaterVideos = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
-    const {video} = JSON.parse(request.requestBody);
+    const { video } = JSON.parse(request.requestBody);
     if (user.watchlater.some((item) => item.id === video.id)) {
       return new Response(
         409,
         {},
         {
-          errors: ["The video is already in your watch later videos"],
-        }
+          errors: ['The video is already in your watch later videos'],
+        },
       );
     }
     user.watchlater.push(video);
-    return new Response(201, {}, {watchlater: user.watchlater});
+    return new Response(201, {}, { watchlater: user.watchlater });
   }
   return new Response(
     404,
     {},
     {
-      errors: ["The email you entered is not Registered. Not Found error"],
-    }
+      errors: ['The email you entered is not Registered. Not Found error'],
+    },
   );
 };
 
@@ -76,15 +76,13 @@ export const removeItemFromWatchLaterVideos = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const videoId = request.params.videoId;
-    const filteredVideos = user.watchlater.filter(
-      (item) => item._id !== videoId
-    );
-    this.db.users.update({watchlater: filteredVideos});
-    return new Response(200, {}, {watchlater: filteredVideos});
+    const filteredVideos = user.watchlater.filter((item) => item._id !== videoId);
+    this.db.users.update({ watchlater: filteredVideos });
+    return new Response(200, {}, { watchlater: filteredVideos });
   }
   return new Response(
     404,
     {},
-    {errors: ["The user you request does not exist. Not Found error."]}
+    { errors: ['The user you request does not exist. Not Found error.'] },
   );
 };

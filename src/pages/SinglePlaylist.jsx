@@ -1,12 +1,12 @@
-import React from "react";
-import {useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
-import {SideBar} from "../components/SideBar";
-import {VideoCard} from "../components/VideoCard";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { SideBar } from '../components/SideBar';
+import { VideoCard } from '../components/VideoCard';
 
 export const SinglePlaylist = () => {
-  const {playlistId} = useParams();
-  const {playlists} = useSelector((state) => state.playlist);
+  const { playlistId } = useParams();
+  const { playlists } = useSelector((state) => state.playlist);
   const currentPlaylist = playlists?.find((playlist) => playlist._id === playlistId);
 
   return (
@@ -14,9 +14,7 @@ export const SinglePlaylist = () => {
       <SideBar />
       <main className="mx-4">
         <h1 className="text-3xl font-bold mb-4">{currentPlaylist?.title}</h1>
-        {currentPlaylist?.videos.length === 0 && (
-          <p>There are no videos in this playlist, yet !</p>
-        )}
+        {currentPlaylist?.videos.length === 0 && <p>There are no videos in this playlist, yet !</p>}
         <div className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] gap-4 mt-6">
           {currentPlaylist?.videos.map((video) => (
             <VideoCard key={video._id} videoProps={video} />

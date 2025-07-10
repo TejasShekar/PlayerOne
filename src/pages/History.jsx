@@ -1,14 +1,14 @@
-import {SideBar} from "../components/SideBar";
-import {useDispatch, useSelector} from "react-redux";
-import {VideoCard} from "../components/VideoCard";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
-import {removeAllVideosFromHistory} from "../redux/features/historySlice";
+import { SideBar } from '../components/SideBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { VideoCard } from '../components/VideoCard';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { removeAllVideosFromHistory } from '../redux/features/historySlice';
 
 export const History = () => {
-  const {history} = useSelector((state) => state.history);
+  const { history } = useSelector((state) => state.history);
   const dispatch = useDispatch();
 
-  useDocumentTitle("History | PLAYERONE");
+  useDocumentTitle('History | PLAYERONE');
 
   return (
     <div className="w-full h-full grid grid-flow-col grid-cols-[15rem,1fr] pt-4 dark:bg-[#252525] dark:text-white">

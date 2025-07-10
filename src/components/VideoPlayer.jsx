@@ -1,4 +1,4 @@
-export const VideoPlayer = ({id}) => {
+export const VideoPlayer = ({ id }) => {
   return (
     <div className=" w-[53rem] h-[30rem]">
       <iframe

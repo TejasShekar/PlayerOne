@@ -112,7 +112,6 @@ Persistent Storage (IndexedDB for PWA)
 **Timeline: 2-3 weeks**
 
 - **REQ-1.1.1: Component Refactoring**
-
   - **Acceptance Criteria:**
     - No component exceeds 150 lines
     - Extract at least 5 reusable components from existing monoliths
@@ -123,7 +122,6 @@ Persistent Storage (IndexedDB for PWA)
     - Use React.memo for performance optimization
 
 - **REQ-1.1.2: Custom Hooks Extraction**
-
   - **Acceptance Criteria:**
     - Create `useErrorHandler` hook for consistent error management
     - Implement `useLocalStorage` hook for data persistence
@@ -132,13 +130,13 @@ Persistent Storage (IndexedDB for PWA)
     ```javascript
     // hooks/useErrorHandler.js
     const useErrorHandler = () => {
-    	const dispatch = useDispatch();
-    	return useCallback(
-    		(error, fallback) => {
-    			dispatch(setError(error.message || fallback));
-    		},
-    		[dispatch]
-    	);
+      const dispatch = useDispatch();
+      return useCallback(
+        (error, fallback) => {
+          dispatch(setError(error.message || fallback));
+        },
+        [dispatch],
+      );
     };
     ```
 
@@ -157,21 +155,20 @@ Persistent Storage (IndexedDB for PWA)
 **Timeline: 1-2 weeks**
 
 - **REQ-1.2.1: Enhanced Error Handling**
-
   - **Technical Implementation:**
     ```javascript
     // store/middleware/errorMiddleware.js
     const errorMiddleware = (store) => (next) => (action) => {
-    	if (action.type.endsWith("/rejected")) {
-    		// Global error handling logic
-    		store.dispatch(
-    			showNotification({
-    				type: "error",
-    				message: action.payload?.message || "An error occurred",
-    			})
-    		);
-    	}
-    	return next(action);
+      if (action.type.endsWith('/rejected')) {
+        // Global error handling logic
+        store.dispatch(
+          showNotification({
+            type: 'error',
+            message: action.payload?.message || 'An error occurred',
+          }),
+        );
+      }
+      return next(action);
     };
     ```
 
@@ -186,7 +183,6 @@ Persistent Storage (IndexedDB for PWA)
 **Timeline: 1 week setup + ongoing**
 
 - **REQ-1.3.1: Unit Testing Setup**
-
   - **Technical Implementation:**
     - Jest + React Testing Library configuration
     - MSW (Mock Service Worker) for API mocking
@@ -202,21 +198,21 @@ Persistent Storage (IndexedDB for PWA)
     ```json
     // package.json
     {
-    	"scripts": {
-    		"prepare": "husky install",
-    		"test:coverage": "jest --coverage --watchAll=false",
-    		"lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    		"lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
-    		"type-check": "tsc --noEmit"
-    	},
-    	"lint-staged": {
-    		"*.{js,jsx,ts,tsx}": [
-    			"eslint --fix",
-    			"prettier --write",
-    			"jest --bail --findRelatedTests --passWithNoTests"
-    		],
-    		"*.{json,css,md}": ["prettier --write"]
-    	}
+      "scripts": {
+        "prepare": "husky install",
+        "test:coverage": "jest --coverage --watchAll=false",
+        "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+        "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+        "type-check": "tsc --noEmit"
+      },
+      "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+          "eslint --fix",
+          "prettier --write",
+          "jest --bail --findRelatedTests --passWithNoTests"
+        ],
+        "*.{json,css,md}": ["prettier --write"]
+      }
     }
     ```
 
@@ -264,7 +260,6 @@ Persistent Storage (IndexedDB for PWA)
 #### 6.2.1. User Experience Enhancements
 
 - **FEAT-2.1.1: Enhanced Theme Toggle**
-
   - **Timeline: 3-5 days**
   - **Technical Specs:**
     - System theme detection using `prefers-color-scheme`
@@ -273,19 +268,16 @@ Persistent Storage (IndexedDB for PWA)
   - **Implementation:**
     ```javascript
     const useTheme = () => {
-    	const [theme, setTheme] = useState(() => {
-    		const saved = localStorage.getItem("theme");
-    		if (saved) return saved;
-    		return window.matchMedia("(prefers-color-scheme: dark)").matches
-    			? "dark"
-    			: "light";
-    	});
-    	// Theme logic...
+      const [theme, setTheme] = useState(() => {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      });
+      // Theme logic...
     };
     ```
 
 - **FEAT-2.1.2: User Profile Management**
-
   - **Timeline: 1 week**
   - **Technical Specs:**
     - Avatar upload with image compression
@@ -294,8 +286,8 @@ Persistent Storage (IndexedDB for PWA)
   - **API Extensions:**
     ```javascript
     // New MirageJS routes
-    this.patch("/api/users/:id", (schema, request) => {
-    	// Profile update logic
+    this.patch('/api/users/:id', (schema, request) => {
+      // Profile update logic
     });
     ```
 
@@ -314,7 +306,6 @@ Persistent Storage (IndexedDB for PWA)
 #### 6.2.2. Social & Engagement Features
 
 - **FEAT-2.2.1: Comments System**
-
   - **Timeline: 2 weeks**
   - **Technical Specs:**
     - Nested comments (max 3 levels)
@@ -325,14 +316,14 @@ Persistent Storage (IndexedDB for PWA)
     ```javascript
     // MirageJS Models
     Model.extend({
-    	id: attr(),
-    	content: attr(),
-    	userId: attr(),
-    	videoId: attr(),
-    	parentId: attr(), // For nested comments
-    	createdAt: attr(),
-    	likes: attr("number", 0),
-    	replies: hasMany("comment"),
+      id: attr(),
+      content: attr(),
+      userId: attr(),
+      videoId: attr(),
+      parentId: attr(), // For nested comments
+      createdAt: attr(),
+      likes: attr('number', 0),
+      replies: hasMany('comment'),
     });
     ```
 
@@ -347,7 +338,6 @@ Persistent Storage (IndexedDB for PWA)
 #### 6.2.3. Performance & PWA
 
 - **FEAT-2.3.1: PWA Implementation**
-
   - **Timeline: 1 week**
   - **Technical Specs:**
     - Service Worker for offline capability
@@ -490,17 +480,17 @@ Persistent Storage (IndexedDB for PWA)
 
 ```json
 {
-	"typescript": "^5.0.0",
-	"@types/react": "^18.0.0",
-	"@testing-library/react": "^13.0.0",
-	"@testing-library/jest-dom": "^5.0.0",
-	"msw": "^1.0.0",
-	"husky": "^8.0.0",
-	"lint-staged": "^13.0.0",
-	"prettier": "^2.8.0",
-	"eslint": "^8.0.0",
-	"@typescript-eslint/eslint-plugin": "^5.0.0",
-	"@typescript-eslint/parser": "^5.0.0"
+  "typescript": "^5.0.0",
+  "@types/react": "^18.0.0",
+  "@testing-library/react": "^13.0.0",
+  "@testing-library/jest-dom": "^5.0.0",
+  "msw": "^1.0.0",
+  "husky": "^8.0.0",
+  "lint-staged": "^13.0.0",
+  "prettier": "^2.8.0",
+  "eslint": "^8.0.0",
+  "@typescript-eslint/eslint-plugin": "^5.0.0",
+  "@typescript-eslint/parser": "^5.0.0"
 }
 ```
 
@@ -508,11 +498,11 @@ Persistent Storage (IndexedDB for PWA)
 
 ```json
 {
-	"@reduxjs/toolkit": "^1.9.0",
-	"react-hook-form": "^7.0.0",
-	"react-router-dom": "^6.0.0",
-	"dompurify": "^3.0.0",
-	"workbox-webpack-plugin": "^6.0.0"
+  "@reduxjs/toolkit": "^1.9.0",
+  "react-hook-form": "^7.0.0",
+  "react-router-dom": "^6.0.0",
+  "dompurify": "^3.0.0",
+  "workbox-webpack-plugin": "^6.0.0"
 }
 ```
 

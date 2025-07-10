@@ -1,12 +1,12 @@
-import React from "react";
-import {Link, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import fallback_DP from "../assets/fallback_DP.jpg";
-import {userLogOut} from "../redux/features/authSlice";
+import fallback_DP from '../assets/fallback_DP.jpg';
+import { userLogOut } from '../redux/features/authSlice';
 
-export const NavBar = ({theme}) => {
-  const {darkTheme, setDarkTheme} = theme;
+export const NavBar = ({ theme }) => {
+  const { darkTheme, setDarkTheme } = theme;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.userData);
@@ -25,7 +25,7 @@ export const NavBar = ({theme}) => {
           }}
         >
           <span className="material-icons-outlined text-3xl">
-            {darkTheme ? "light_mode" : "dark_mode"}
+            {darkTheme ? 'light_mode' : 'dark_mode'}
           </span>
         </button>
         {user ? (
@@ -41,17 +41,14 @@ export const NavBar = ({theme}) => {
             <button
               onClick={() => {
                 dispatch(userLogOut());
-                navigate("/login");
+                navigate('/login');
               }}
             >
               <span className="material-icons-outlined">logout</span>
             </button>
           </>
         ) : (
-          <Link
-            to="/login"
-            className="p-2 px-4 font-bold text-black bg-[#eea53f] rounded-full"
-          >
+          <Link to="/login" className="p-2 px-4 font-bold text-black bg-[#eea53f] rounded-full">
             Login
           </Link>
         )}

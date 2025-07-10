@@ -1,17 +1,17 @@
-import {useSelector} from "react-redux";
-import {Categories} from "../components/Categories";
-import {SideBar} from "../components/SideBar";
-import {VideoCard} from "../components/VideoCard";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
+import { useSelector } from 'react-redux';
+import { Categories } from '../components/Categories';
+import { SideBar } from '../components/SideBar';
+import { VideoCard } from '../components/VideoCard';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const filterVideosByCategory = (data, category) => {
-  if (category.toLowerCase() === "all") return data;
+  if (category.toLowerCase() === 'all') return data;
   return data.filter((video) => category.toLowerCase() === video.category);
 };
 
 export const Explore = () => {
-  const {videosData, isLoading, selectedCategory} = useSelector((state) => state.videos);
-  useDocumentTitle("Explore | PLAYERONE");
+  const { videosData, isLoading, selectedCategory } = useSelector((state) => state.videos);
+  useDocumentTitle('Explore | PLAYERONE');
 
   const filteredVideos = filterVideosByCategory(videosData, selectedCategory);
 

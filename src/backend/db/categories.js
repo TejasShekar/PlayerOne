@@ -1,19 +1,19 @@
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from 'uuid';
 export const categories = [
   {
     _id: uuid(),
-    name: "Action",
+    name: 'Action',
   },
   {
     _id: uuid(),
-    name: "Adventure",
+    name: 'Adventure',
   },
   {
     _id: uuid(),
-    name: "Racing",
+    name: 'Racing',
   },
   {
     _id: uuid(),
-    name: "Sports",
+    name: 'Sports',
   },
 ];

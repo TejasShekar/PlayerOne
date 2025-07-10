@@ -1,10 +1,10 @@
-import React from "react";
-import {useDispatch} from "react-redux";
-import {Link} from "react-router-dom";
-import {removePlaylist} from "../redux/features/playlistSlice";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { removePlaylist } from '../redux/features/playlistSlice';
 
-export const PlayListCard = ({data}) => {
-  const {title, videos, _id} = data;
+export const PlayListCard = ({ data }) => {
+  const { title, videos, _id } = data;
   const dispatch = useDispatch();
 
   return (
@@ -14,14 +14,14 @@ export const PlayListCard = ({data}) => {
           src={
             videos?.length !== 0
               ? `https://i.ytimg.com/vi/${videos[0]?._id}/hq720.jpg`
-              : "https://i.ytimg.com/img/no_thumbnail.jpg"
+              : 'https://i.ytimg.com/img/no_thumbnail.jpg'
           }
           alt={videos[0]?.title}
           className=" aspect-video w-full"
           role="button"
         />
         <div className="absolute top-0 right-0 h-full w-1/2 bg-black/[0.7] flex items-center justify-center">
-          {videos?.length} {videos?.length === 1 ? "Video" : "Videos"}
+          {videos?.length} {videos?.length === 1 ? 'Video' : 'Videos'}
         </div>
       </Link>
       <div className="flex justify-between p-2">

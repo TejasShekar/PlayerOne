@@ -1,15 +1,15 @@
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {userSignUp} from "../redux/features/authSlice";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userSignUp } from '../redux/features/authSlice';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
   });
   const [showPassword, setShowPassword] = useState({
     password: false,
@@ -21,7 +21,7 @@ export const SignUp = () => {
     e.preventDefault();
     if (signUpData.email && signUpData.password) dispatch(userSignUp(signUpData));
   };
-  useDocumentTitle("Sign Up | PLAYERONE");
+  useDocumentTitle('Sign Up | PLAYERONE');
 
   return (
     <main className="dark:bg-[#252525] dark:text-white h-[calc(100vh-5rem)] grid place-content-center">
@@ -38,9 +38,7 @@ export const SignUp = () => {
               value={signUpData.firstName}
               className="dark:text-white border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
               required
-              onChange={(e) =>
-                setSignUpData((prev) => ({...prev, firstName: e.target.value}))
-              }
+              onChange={(e) => setSignUpData((prev) => ({ ...prev, firstName: e.target.value }))}
             />
           </div>
           <div className="flex flex-col gap-2 m-2">
@@ -53,9 +51,7 @@ export const SignUp = () => {
               value={signUpData.lastName}
               className="dark:text-white border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
               required
-              onChange={(e) =>
-                setSignUpData((prev) => ({...prev, lastName: e.target.value}))
-              }
+              onChange={(e) => setSignUpData((prev) => ({ ...prev, lastName: e.target.value }))}
             />
           </div>
           <div className="flex flex-col gap-2 m-2">
@@ -69,9 +65,7 @@ export const SignUp = () => {
               className="dark:text-white border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
               required
               placeholder="user.name@email.com"
-              onChange={(e) =>
-                setSignUpData((prev) => ({...prev, email: e.target.value}))
-              }
+              onChange={(e) => setSignUpData((prev) => ({ ...prev, email: e.target.value }))}
             />
           </div>
           <div className="flex flex-col gap-2 m-2 ">
@@ -80,25 +74,23 @@ export const SignUp = () => {
             </label>
             <div className="relative">
               <input
-                type={showPassword.password ? "text" : "password"}
+                type={showPassword.password ? 'text' : 'password'}
                 id="password"
                 value={signUpData.password}
                 className="dark:text-white w-full border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
                 required
-                onChange={(e) =>
-                  setSignUpData((prev) => ({...prev, password: e.target.value}))
-                }
+                onChange={(e) => setSignUpData((prev) => ({ ...prev, password: e.target.value }))}
               />
               <button
                 onClick={(e) => {
                   e.preventDefault();
                 }}
-                onMouseDown={() => setShowPassword((prev) => ({...prev, password: true}))}
-                onMouseUp={() => setShowPassword((prev) => ({...prev, password: false}))}
+                onMouseDown={() => setShowPassword((prev) => ({ ...prev, password: true }))}
+                onMouseUp={() => setShowPassword((prev) => ({ ...prev, password: false }))}
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">
-                  {showPassword.password ? "visibility_off" : "visibility"}
+                  {showPassword.password ? 'visibility_off' : 'visibility'}
                 </span>
               </button>
             </div>
@@ -109,7 +101,7 @@ export const SignUp = () => {
             </label>
             <div className="relative">
               <input
-                type={showPassword.confirmPassword ? "text" : "password"}
+                type={showPassword.confirmPassword ? 'text' : 'password'}
                 id="confirm-password"
                 className="dark:text-white w-full border-2 bg-transparent focus:border-[#eeaf23] focus:outline-none rounded-md p-2"
                 required
@@ -124,22 +116,17 @@ export const SignUp = () => {
                     confirmPassword: true,
                   }))
                 }
-                onMouseUp={() =>
-                  setShowPassword((prev) => ({...prev, confirmPassword: false}))
-                }
+                onMouseUp={() => setShowPassword((prev) => ({ ...prev, confirmPassword: false }))}
                 className="absolute top-2 right-2"
               >
                 <span className="material-icons-outlined">
-                  {showPassword.confirmPassword ? "visibility_off" : "visibility"}
+                  {showPassword.confirmPassword ? 'visibility_off' : 'visibility'}
                 </span>
               </button>
             </div>
           </div>
           <div className="flex flex-col">
-            <button
-              type="submit"
-              className="bg-[#eeaf23] m-2 p-2 rounded-lg text-black font-bold"
-            >
+            <button type="submit" className="bg-[#eeaf23] m-2 p-2 rounded-lg text-black font-bold">
               Sign Up
             </button>
           </div>

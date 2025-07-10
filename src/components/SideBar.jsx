@@ -1,7 +1,7 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export const SideBar = () => {
-  const activeStyle = "text-black bg-[#eea53f]";
+  const activeStyle = 'text-black bg-[#eea53f]';
 
   return (
     // Add a btn that will toggle the side bar open and close
@@ -12,9 +12,7 @@ export const SideBar = () => {
           <li>
             <NavLink
               to="/explore"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
+              className={({ isActive }) => `${isActive ? activeStyle : ''} py-4 px-4 flex center`}
             >
               <span className="material-icons-outlined mr-4">explore</span>
               Explore
@@ -23,9 +21,7 @@ export const SideBar = () => {
           <li>
             <NavLink
               to="/watch-later"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
+              className={({ isActive }) => `${isActive ? activeStyle : ''} py-4 px-4 flex center`}
             >
               <span className="material-icons-outlined mr-4">watch_later</span>
               Watch Later
@@ -34,9 +30,7 @@ export const SideBar = () => {
           <li>
             <NavLink
               to="/liked"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
+              className={({ isActive }) => `${isActive ? activeStyle : ''} py-4 px-4 flex center`}
             >
               <span className="material-icons-outlined mr-4">thumb_up</span>
               Liked Videos
@@ -45,9 +39,7 @@ export const SideBar = () => {
           <li>
             <NavLink
               to="/playlist"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
+              className={({ isActive }) => `${isActive ? activeStyle : ''} py-4 px-4 flex center`}
             >
               <span className="material-icons-outlined mr-4">playlist_play</span>
               Playlist
@@ -56,9 +48,7 @@ export const SideBar = () => {
           <li>
             <NavLink
               to="/history"
-              className={({isActive}) =>
-                `${isActive ? activeStyle : ""} py-4 px-4 flex center`
-              }
+              className={({ isActive }) => `${isActive ? activeStyle : ''} py-4 px-4 flex center`}
             >
               <span className="material-icons-outlined mr-4">history</span>
               History

@@ -1,27 +1,24 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
   videosData: [],
-  selectedCategory: "All",
+  selectedCategory: 'All',
   isLoading: true,
   error: null,
 };
 
-export const fetchVideos = createAsyncThunk(
-  "videos/fetchVideo",
-  async (_, {rejectWithValue}) => {
-    try {
-      const response = await axios.get("/api/videos");
-      return response.data.videos;
-    } catch (error) {
-      return rejectWithValue("Failed to fetch videos right now");
-    }
+export const fetchVideos = createAsyncThunk('videos/fetchVideo', async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get('/api/videos');
+    return response.data.videos;
+  } catch (error) {
+    return rejectWithValue('Failed to fetch videos right now');
   }
-);
+});
 
 const videoSlice = createSlice({
-  name: "videos",
+  name: 'videos',
   initialState,
   reducers: {
     filterByCategory: (state, action) => {
@@ -31,7 +28,7 @@ const videoSlice = createSlice({
   extraReducers: {
     [fetchVideos.pending]: (state) => {
       state.isLoading = true;
-      state.error = "";
+      state.error = '';
     },
     [fetchVideos.fulfilled]: (state, action) => {
       state.isLoading = false;
@@ -45,4 +42,4 @@ const videoSlice = createSlice({
 });
 
 export default videoSlice.reducer;
-export const {filterByCategory} = videoSlice.actions;
+export const { filterByCategory } = videoSlice.actions;

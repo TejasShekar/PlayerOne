@@ -1,18 +1,18 @@
-import {useEffect, useRef, useState} from "react";
-import {getFormattedViewCount} from "../utils/getFormattedViewCount";
-import {ThreeDotMenu} from "./ThreeDotMenu";
-import {useLocation, Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+import { useEffect, useRef, useState } from 'react';
+import { getFormattedViewCount } from '../utils/getFormattedViewCount';
+import { ThreeDotMenu } from './ThreeDotMenu';
+import { useLocation, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-export const VideoCard = ({videoProps}) => {
+export const VideoCard = ({ videoProps }) => {
   const [error, setError] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
   const videoCardRef = useRef(null);
-  const {_id, title, creator, creatorID, views, uploadDate} = videoProps;
+  const { _id, title, creator, creatorID, views, uploadDate } = videoProps;
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
-  const {pathname} = useLocation();
-  const {isModalOpen} = useSelector((state) => state.playlist);
+  const { pathname } = useLocation();
+  const { isModalOpen } = useSelector((state) => state.playlist);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -25,8 +25,8 @@ export const VideoCard = ({videoProps}) => {
         setOpenOptions(false);
       }
     };
-    document.addEventListener("mousedown", checkIfClickedOutside);
-    return () => document.removeEventListener("mousedown", checkIfClickedOutside);
+    document.addEventListener('mousedown', checkIfClickedOutside);
+    return () => document.removeEventListener('mousedown', checkIfClickedOutside);
   }, [openOptions, isModalOpen]);
 
   return (
@@ -46,10 +46,8 @@ export const VideoCard = ({videoProps}) => {
               />
               <div className="flex flex-col gap-1">
                 <p>{title}</p>
-                <p className="text-[0.8rem] text-gray-600 dark:text-gray-400">
-                  {creator}
-                </p>
-                {pathname === "/explore" && (
+                <p className="text-[0.8rem] text-gray-600 dark:text-gray-400">{creator}</p>
+                {pathname === '/explore' && (
                   <div className="flex text-[0.9rem] text-gray-600 dark:text-gray-300">
                     <p>{getFormattedViewCount(views)} views</p>
                     <span className="mx-2">•</span>

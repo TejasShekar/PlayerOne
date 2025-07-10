@@ -1,30 +1,30 @@
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {VideoPlayer} from "./VideoPlayer";
-import {addToLikedVideos, removeFromLikedVideos} from "../redux/features/likedSlice";
-import {addToWatchLater, removeFromWatchLater} from "../redux/features/watchLaterSlice";
-import {getFormattedViewCount} from "../utils/getFormattedViewCount";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { VideoPlayer } from './VideoPlayer';
+import { addToLikedVideos, removeFromLikedVideos } from '../redux/features/likedSlice';
+import { addToWatchLater, removeFromWatchLater } from '../redux/features/watchLaterSlice';
+import { getFormattedViewCount } from '../utils/getFormattedViewCount';
 import {
   isVideoInHistory,
   isVideoInLikedVideos,
   isVideoInWatchLater,
-} from "../utils/videoActionHelps";
-import {useDocumentTitle} from "../hooks/useDocumentTitle";
-import {addToHistory} from "../redux/features/historySlice";
-import {useNavigate} from "react-router-dom";
-import {setIsModalOpen} from "../redux/features/playlistSlice";
-import {PlaylistModal} from "./PlaylistModal";
+} from '../utils/videoActionHelps';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { addToHistory } from '../redux/features/historySlice';
+import { useNavigate } from 'react-router-dom';
+import { setIsModalOpen } from '../redux/features/playlistSlice';
+import { PlaylistModal } from './PlaylistModal';
 
-export const SingleVideoPlayer = ({video}) => {
-  const {_id, title, creator, creatorID, views, uploadDate, description} = video;
+export const SingleVideoPlayer = ({ video }) => {
+  const { _id, title, creator, creatorID, views, uploadDate, description } = video;
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {token} = useSelector((state) => state.auth);
-  const {watchLaterVideos} = useSelector((state) => state.watchLater);
-  const {history} = useSelector((state) => state.history);
-  const {likedVideos} = useSelector((state) => state.liked);
-  const {isModalOpen} = useSelector((state) => state.playlist);
+  const { token } = useSelector((state) => state.auth);
+  const { watchLaterVideos } = useSelector((state) => state.watchLater);
+  const { history } = useSelector((state) => state.history);
+  const { likedVideos } = useSelector((state) => state.liked);
+  const { isModalOpen } = useSelector((state) => state.playlist);
 
   const mainImgSrc = `https://yt3.ggpht.com/ytc/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
   const fallbackSrc = `https://yt3.ggpht.com/${creatorID}=s88-c-k-c0x00ffffff-no-rj`;
@@ -61,27 +61,26 @@ export const SingleVideoPlayer = ({video}) => {
                   ? foundInLikedVideos
                     ? dispatch(removeFromLikedVideos(_id))
                     : dispatch(addToLikedVideos(video))
-                  : navigate("/login");
+                  : navigate('/login');
               }}
             >
               <span
                 className={`${
-                  foundInLikedVideos ? "material-icons" : "material-icons-outlined"
+                  foundInLikedVideos ? 'material-icons' : 'material-icons-outlined'
                 } mr-2`}
               >
                 thumb_up
               </span>
-              {foundInLikedVideos ? "Liked" : "Like"}
+              {foundInLikedVideos ? 'Liked' : 'Like'}
             </button>
             <button
               className="flex center"
               onClick={(e) => {
                 e.stopPropagation();
-                token ? dispatch(setIsModalOpen(true)) : navigate("/login");
+                token ? dispatch(setIsModalOpen(true)) : navigate('/login');
               }}
             >
-              <span className="material-icons-outlined mr-2">playlist_add</span>Add to
-              Playlist
+              <span className="material-icons-outlined mr-2">playlist_add</span>Add to Playlist
             </button>
             <button
               className="flex center"
@@ -91,17 +90,17 @@ export const SingleVideoPlayer = ({video}) => {
                   ? foundInWatchLater
                     ? dispatch(removeFromWatchLater(_id))
                     : dispatch(addToWatchLater(video))
-                  : navigate("/login");
+                  : navigate('/login');
               }}
             >
               <span
                 className={`${
-                  foundInWatchLater ? "material-icons" : "material-icons-outlined"
+                  foundInWatchLater ? 'material-icons' : 'material-icons-outlined'
                 } mr-2`}
               >
-                {foundInWatchLater ? "watch_later" : "more_time"}
+                {foundInWatchLater ? 'watch_later' : 'more_time'}
               </span>
-              {foundInWatchLater ? "Remove from" : "Add to"} Watch Later
+              {foundInWatchLater ? 'Remove from' : 'Add to'} Watch Later
             </button>
           </div>
         </div>
